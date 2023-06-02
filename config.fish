@@ -1,6 +1,7 @@
 # Prompt: Informative VCS
 # Theme: Fish Default
 
+source ~/.iterm2_shell_integration.fish
 set fish_greeting
 eval "$(/opt/homebrew/bin/brew shellenv)"
 fish_add_path ~/Library/Python/3.9/bin
