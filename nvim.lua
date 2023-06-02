@@ -88,7 +88,7 @@ require("lazy").setup {
         o.load()
         vim.cmd "highlight! link CursorLineNr CursorLine"
         vim.cmd "highlight! link CursorLineSign CursorLine"
-        vim.cmd "highlight! MiniStatuslineFilename guifg=#3A3A3A"
+        vim.cmd "highlight! MiniStatuslineFilename guifg=#383A42"
     end },
     { "lewis6991/gitsigns.nvim", config = function()
         require("gitsigns").setup()
