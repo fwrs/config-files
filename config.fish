@@ -2,9 +2,12 @@
 # Theme: Fish Default
 
 source ~/.iterm2_shell_integration.fish
-set fish_greeting
 eval "$(/opt/homebrew/bin/brew shellenv)"
 fish_add_path ~/Library/Python/3.9/bin
+
+set fish_greeting
+set -gx PAGER "nvim"
+set -gx MANPAGER "nvim +Man!"
 
 abbr -a gl "git log --graph --all --oneline --decorate --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\""
 abbr -a gfixup "git commit -a --amend --no-edit"
