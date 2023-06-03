@@ -1,2 +1,4 @@
 gui:
   showFileTree: false
+  showBottomLine: false
+  border: rounded
