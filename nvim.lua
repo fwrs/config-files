@@ -21,7 +21,7 @@ vim.opt.showmode = false
 vim.opt.shortmess:append("I")
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.list = false
-vim.opt.listchars = "eol:↵,space:·,precedes:<,extends:>,tab:>-,nbsp:␣"
+vim.opt.listchars = "eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣"
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.showbreak = string.rep(" ", 3)
