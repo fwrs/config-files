@@ -31,3 +31,9 @@
     autoSetupRebase = always
 [merge]
     conflictStyle = diff3
+    tool = "nvim"
+[mergetool]
+    keepBackup = false
+    prompt = false
+[mergetool "nvim"]
+    cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
