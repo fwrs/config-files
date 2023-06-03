@@ -7,6 +7,7 @@
 [core]
     excludesFile = ~/.gitignore_global
     editor = "nvim"
+    pager = "nvim -R +\"AnsiEsc\" +\"set nowrap\" -"
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
