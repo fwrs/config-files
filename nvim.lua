@@ -54,6 +54,8 @@ vim.keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>")
 vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
 vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
 vim.keymap.set("n", "<leader>rs", ":LspRestart<cr>")
+vim.keymap.set("n", "<leader>ha", ":HopAnywhere<cr>")
+vim.keymap.set("n", "<leader>hw", ":HopWord<cr>")
 
 -- autocmds
 vim.cmd.autocmd "InsertEnter * :set norelativenumber"
@@ -75,7 +77,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup {
     { "nvim-lua/plenary.nvim" },
     { "nmac427/guess-indent.nvim", config = function()
-        require("guess-indent").setup {}
+        require("guess-indent").setup()
     end },
     { "airblade/vim-rooter" },
     { "navarasu/onedark.nvim", config = function()
@@ -204,5 +206,8 @@ require("lazy").setup {
     end },
     { "folke/which-key.nvim", config = function()
         require("which-key").setup { icons = { separator = ":" } }
+    end },
+    { "phaazon/hop.nvim", config = function()
+        require("hop").setup()
     end }
 }
