@@ -61,6 +61,7 @@ vim.keymap.set("n", "<leader>hw", "<cmd>HopWord<cr>")
 vim.cmd.autocmd "InsertEnter * set norelativenumber"
 vim.cmd.autocmd "InsertLeave * set relativenumber"
 vim.cmd.autocmd "BufWritePre * %s/\\S\\@<=\\s\\+$//e"
+vim.cmd.autocmd "BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"redrawstatus!\") end, 100)"
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
