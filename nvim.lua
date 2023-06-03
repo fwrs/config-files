@@ -33,16 +33,16 @@ vim.g.loaded_netrwPlugin = 0
 vim.keymap.set("n", "<leader>nh", ":nohl<cr>")
 vim.keymap.set("n", "x", "\"_x")
 vim.keymap.set("n", "<leader>l", ":set list!<cr>")
-vim.keymap.set("n", "<leader>+", "<C-a>")
-vim.keymap.set("n", "<leader>-", "<C-x>")
-vim.keymap.set("n", "<leader>sv", "<C-w>v")
-vim.keymap.set("n", "<leader>sh", "<C-w>s")
-vim.keymap.set("n", "<leader>se", "<C-w>=")
-vim.keymap.set("n", "<leader>sx", ":close<CR>")
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>")
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>")
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>")
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>")
+vim.keymap.set("n", "<leader>+", "<c-a>")
+vim.keymap.set("n", "<leader>-", "<c-x>")
+vim.keymap.set("n", "<leader>sv", "<c-w>v")
+vim.keymap.set("n", "<leader>sh", "<c-w>s")
+vim.keymap.set("n", "<leader>se", "<c-w>=")
+vim.keymap.set("n", "<leader>sx", ":close<cr>")
+vim.keymap.set("n", "<leader>to", ":tabnew<cr>")
+vim.keymap.set("n", "<leader>tx", ":tabclose<cr>")
+vim.keymap.set("n", "<leader>tn", ":tabn<cr>")
+vim.keymap.set("n", "<leader>tp", ":tabp<cr>")
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser<cr>")
 vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope live_grep<cr>")
@@ -138,13 +138,13 @@ require("lazy").setup {
                 luasnip.lsp_expand(args.body)
             end },
             mapping = cmp.mapping.preset.insert {
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
-                ["<C-j>"] = cmp.mapping.select_next_item(),
-                ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-e>"] = cmp.mapping.abort(),
-                ["<CR>"] = cmp.mapping.confirm { select = false }
+                ["<c-k>"] = cmp.mapping.select_prev_item(),
+                ["<c-j>"] = cmp.mapping.select_next_item(),
+                ["<c-b>"] = cmp.mapping.scroll_docs(-4),
+                ["<c-f>"] = cmp.mapping.scroll_docs(4),
+                ["<c-space>"] = cmp.mapping.complete(),
+                ["<c-e>"] = cmp.mapping.abort(),
+                ["<cr>"] = cmp.mapping.confirm { select = false }
             },
             sources = cmp.config.sources {
                 { name = "nvim_lsp" },
@@ -167,15 +167,15 @@ require("lazy").setup {
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local on_attach = function(client, bufnr)
             local opts = { noremap = true, silent = true, buffer = bufnr }
-            vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+            vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts)
             vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-            vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-            vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-            vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+            vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+            vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
+            vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
             vim.keymap.set("n", "<leader>rn", ":IncRename ", opts)
-            vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+            vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
             vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
