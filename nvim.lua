@@ -30,7 +30,6 @@ vim.g.rooter_silent_chdir = 1
 vim.g.loaded_netrwPlugin = 0
 
 -- keymaps
-vim.keymap.set("i", "jk", "<esc>")
 vim.keymap.set("n", "<leader>nh", ":nohl<cr>")
 vim.keymap.set("n", "x", "\"_x")
 vim.keymap.set("n", "<leader>l", ":set list!<cr>")
