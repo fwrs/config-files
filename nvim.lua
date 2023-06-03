@@ -89,6 +89,7 @@ require("lazy").setup {
     { "lewis6991/gitsigns.nvim", config = function()
         require("gitsigns").setup()
     end },
+    { "powerman/vim-plugin-AnsiEsc" },
     { "vim-scripts/ReplaceWithRegister" },
     { "tpope/vim-surround" },
     { "tpope/vim-fugitive" },
