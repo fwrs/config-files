@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Command</key>
-	<string>/opt/homebrew/bin/fish</string>
+	<string></string>
 	<key>CopySelection</key>
 	<false/>
 	<key>Custom Color Presets</key>
@@ -352,6 +352,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>63BED2A1-CCA5-449D-88F7-83E15AE2B960</string>
+	<key>DimInactiveSplitPanes</key>
+	<false/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableProxyIcon</key>
@@ -1112,6 +1114,8 @@
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
+	<key>ShowPaneTitles</key>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>UseMetal</key>
