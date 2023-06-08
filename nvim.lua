@@ -22,6 +22,7 @@ vim.opt.shortmess:append("I")
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.list = false
 vim.opt.listchars = "eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣"
+vim.opt.fillchars = "eob: "
 vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.linebreak = true
