@@ -24,6 +24,7 @@ vim.opt.list = false
 vim.opt.listchars = "eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣"
 vim.opt.wrap = true
 vim.opt.breakindent = true
+vim.opt.linebreak = true
 vim.opt.showbreak = string.rep(" ", 3)
 vim.g.mapleader = " "
 vim.g.rooter_silent_chdir = 1
