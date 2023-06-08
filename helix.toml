@@ -1,0 +1,23 @@
+theme = "onelight"
+
+[editor]
+color-modes = true
+line-number = "relative"
+cursorline = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+"0" = "goto_line_start"
+"^" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
