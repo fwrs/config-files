@@ -20,6 +20,7 @@
     autoSquash = true
 [push]
     autoSetupRemote = true
+    followTags = true
 [gpg]
     format = ssh
 [commit]
@@ -29,6 +30,12 @@
     autoUpdate = true
 [branch]
     autoSetupRebase = always
+[diff]
+    noprefix = true
+[log]
+    abbrevCommit = true
+[status]
+    showUntrackedFiles = all
 [merge]
     conflictStyle = diff3
     tool = "nvim"
