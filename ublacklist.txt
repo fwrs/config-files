@@ -3,3 +3,4 @@
 *://*.programiz.com/*
 *://*.pinterest.com/*
 *://*.geeksforgeeks.org/*
+*://*.medium.com/*
