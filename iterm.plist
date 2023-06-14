@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Command</key>
-	<string></string>
+	<string>/opt/homebrew/bin/fish</string>
 	<key>CopySelection</key>
 	<false/>
 	<key>Custom Color Presets</key>
@@ -746,13 +746,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.66666666666666663</real>
+				<real>0.78104287385940552</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.66666666666666663</real>
+				<real>0.78104287385940552</real>
 				<key>Red Component</key>
-				<real>0.66666666666666663</real>
+				<real>0.78104299306869507</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
