@@ -4,3 +4,5 @@
 *://*.pinterest.com/*
 *://*.geeksforgeeks.org/*
 *://*.medium.com/*
+*://*.reddit.com/*
+*://*.lemmy.ml/*
