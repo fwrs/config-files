@@ -1,2 +1,3 @@
 www.youtube.com##.ytp-button.ytp-remote-button
 ||reddit.com^
+||lemmy.ml^
