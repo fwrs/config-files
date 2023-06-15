@@ -6,5 +6,6 @@ These apps support setting a custom monospace font:
 4. Xcode (Part of the theme)
 5. Android Studio (Settings > Editor > Font)
 6. iTerm (Settings > Profiles > Profile > Text)
-7. RapidAPI (Settings > Formatting)
-8. Blender (Edit > Preferences > Interface > Text Rendering)
+7. VS Code (Settings JSON > editor.fontFamily)
+8. RapidAPI (Settings > Formatting)
+9. Blender (Edit > Preferences > Interface > Text Rendering)
