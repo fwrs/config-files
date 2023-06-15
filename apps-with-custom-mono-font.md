@@ -8,3 +8,4 @@ These apps support setting a custom monospace font:
 6. Android Studio (Settings > Editor > Font)
 7. iTerm (Settings > Profiles > Profile > Text)
 8. RapidAPI (Settings > Formatting)
+9. Blender (Edit > Preferences > Interface > Text Rendering)
