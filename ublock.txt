@@ -1,3 +1,4 @@
 www.youtube.com##.ytp-button.ytp-remote-button
+www.twitch.tv##.front-page-carousel
 ||reddit.com^
 ||lemmy.ml^
