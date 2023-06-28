@@ -1,4 +1,6 @@
 www.youtube.com##.ytp-button.ytp-remote-button
 www.twitch.tv##.front-page-carousel:remove()
+onepiece.fandom.com##.popular-pages
+onepiece.fandom.com##.render-wiki-recommendations-right-rail
 ||reddit.com^
 ||lemmy.ml^
