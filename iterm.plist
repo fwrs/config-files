@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Command</key>
-	<string></string>
+	<string>/opt/homebrew/bin/fish</string>
 	<key>CopySelection</key>
 	<false/>
 	<key>Custom Color Presets</key>
@@ -354,6 +354,8 @@
 	<string>63BED2A1-CCA5-449D-88F7-83E15AE2B960</string>
 	<key>DimInactiveSplitPanes</key>
 	<false/>
+	<key>EnableAPIServer</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableProxyIcon</key>
