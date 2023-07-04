@@ -83,13 +83,11 @@ require("lazy").setup {
         require("guess-indent").setup()
     end },
     { "airblade/vim-rooter" },
-    { "navarasu/onedark.nvim", config = function()
-        local o = require("onedark")
-        o.setup { style = "warmer", transparent = false }
-        o.load()
+    { "echasnovski/mini.hues", config = function()
+        require("mini.hues").setup { background = "#1E1E1E", foreground = "#CCCCCC" }
         vim.cmd "highlight! link CursorLineNr CursorLine"
         vim.cmd "highlight! link CursorLineSign CursorLine"
-        vim.cmd "highlight! MiniStatuslineFilename guifg=#A7AAB0"
+        vim.cmd "highlight! MiniStatuslineFilename guibg=#2E2E2E"
     end },
     { "lewis6991/gitsigns.nvim", config = function()
         require("gitsigns").setup()
