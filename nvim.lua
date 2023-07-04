@@ -10,7 +10,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-vim.opt.background = "light"
+vim.opt.background = "dark"
 vim.opt.signcolumn = "yes"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard:append("unnamedplus")
@@ -85,11 +85,11 @@ require("lazy").setup {
     { "airblade/vim-rooter" },
     { "navarasu/onedark.nvim", config = function()
         local o = require("onedark")
-        o.setup { style = "light", transparent = true }
+        o.setup { style = "warmer", transparent = false }
         o.load()
         vim.cmd "highlight! link CursorLineNr CursorLine"
         vim.cmd "highlight! link CursorLineSign CursorLine"
-        vim.cmd "highlight! MiniStatuslineFilename guifg=#383A42"
+        vim.cmd "highlight! MiniStatuslineFilename guifg=#A7AAB0"
     end },
     { "lewis6991/gitsigns.nvim", config = function()
         require("gitsigns").setup()
