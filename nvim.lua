@@ -10,7 +10,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
+vim.opt.background = "light"
 vim.opt.signcolumn = "yes"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard:append("unnamedplus")
@@ -83,11 +83,13 @@ require("lazy").setup {
         require("guess-indent").setup()
     end },
     { "airblade/vim-rooter" },
-    { "echasnovski/mini.hues", config = function()
-        require("mini.hues").setup { background = "#1E1E1E", foreground = "#CCCCCC" }
+    { "navarasu/onedark.nvim", config = function()
+        local o = require("onedark")
+        o.setup { style = "light", transparent = true }
+        o.load()
         vim.cmd "highlight! link CursorLineNr CursorLine"
         vim.cmd "highlight! link CursorLineSign CursorLine"
-        vim.cmd "highlight! MiniStatuslineFilename guibg=#2E2E2E"
+        vim.cmd "highlight! MiniStatuslineFilename guifg=#383A42"
     end },
     { "lewis6991/gitsigns.nvim", config = function()
         require("gitsigns").setup()
