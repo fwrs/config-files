@@ -14,6 +14,7 @@ abbr -a gl "git log --graph --all --oneline --decorate --pretty=format:\"%Cred%h
 abbr -a gfixup "git commit -a --amend --no-edit"
 abbr -a gsw "git switch"
 abbr -a lg "lazygit"
+abbr -a lgs "lazygit status"
 abbr -a pi "pod install"
 abbr -a piup "pod install --repo-update"
 abbr -a gcleanstale "git branch -vv | grep \": gone]\" | awk \"{print \\\$1}\" | xargs -p git branch -D"
