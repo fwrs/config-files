@@ -2,5 +2,7 @@ www.youtube.com##.ytp-button.ytp-remote-button
 www.twitch.tv##.front-page-carousel:remove()
 onepiece.fandom.com##.popular-pages
 onepiece.fandom.com##.render-wiki-recommendations-right-rail
+twitter.com##a[href="/i/verified-choose"]
+twitter.com##div[aria-label="Trending"] div div:has(aside[aria-label="Get Verified"])
 ||reddit.com^
 ||lemmy.ml^
