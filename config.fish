@@ -4,6 +4,7 @@
 source ~/.iterm2_shell_integration.fish
 eval "$(/opt/homebrew/bin/brew shellenv)"
 fish_add_path ~/Library/Python/3.9/bin
+fish_add_path ~/.cargo/bin
 
 set fish_greeting
 set -gx MANPAGER "nvim +Man!"
