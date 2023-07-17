@@ -5,3 +5,8 @@ onepiece.fandom.com##.popular-pages
 onepiece.fandom.com##.render-wiki-recommendations-right-rail
 twitter.com##a[href="/i/verified-choose"]
 twitter.com##div[aria-label="Trending"] div div:has(aside[aria-label="Get Verified"])
+yandex.by##body[data-bem*="\"weather\""] .card_without-card-decoration
+yandex.by##body[data-bem*="\"weather\""] div[style="width: 100%;"]
+yandex.by##body[data-bem*="\"weather\""] #content_right
+yandex.by##body[data-bem*="\"weather\""] div[style="max-height: 600px;"]
+yandex.by##body[data-bem*="\"weather\""] div[class$="_index-ecom"]
