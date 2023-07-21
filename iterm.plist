@@ -1122,6 +1122,8 @@
 	<false/>
 	<key>UseMetal</key>
 	<false/>
+	<key>VerticalBarCursorWidth</key>
+	<real>1.1000000238418579</real>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WindowNumber</key>
