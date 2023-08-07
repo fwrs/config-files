@@ -26,5 +26,6 @@
     "vim.visualstar": true,
     "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
     "lldb.suppressUpdateNotifications": true,
-    "omnisharp.useModernNet": false
+    "lldb.launch.expressions": "native",
+    "omnisharp.useModernNet": false,
 }
