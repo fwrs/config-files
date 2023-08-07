@@ -27,5 +27,5 @@
     "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
     "lldb.suppressUpdateNotifications": true,
     "lldb.launch.expressions": "native",
-    "omnisharp.useModernNet": false,
+    "omnisharp.useModernNet": false
 }
