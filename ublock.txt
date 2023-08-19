@@ -5,4 +5,5 @@ onepiece.fandom.com##.popular-pages
 onepiece.fandom.com##.render-wiki-recommendations-right-rail
 twitter.com##a[href="/i/verified-choose"]
 twitter.com##div[aria-label="Trending"] div div:has(aside[aria-label="Get Verified"])
+twitter.com##div[aria-label="Trending"] div div:has(aside[aria-label="Subscribe to Premium"])
 yandex.*/pogoda$csp=script-src "none"
