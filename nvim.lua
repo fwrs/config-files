@@ -93,6 +93,15 @@ require("lazy").setup {
     end },
     { "lewis6991/gitsigns.nvim", config = function()
         require("gitsigns").setup()
+        vim.defer_fn(function()
+            local cur_bg = vim.api.nvim_get_hl(0, { name = "CursorLine", link = false }).bg
+            for _, sign in ipairs(vim.fn.sign_getdefined()) do
+                local hl = vim.api.nvim_get_hl(0, { name = sign.texthl, link = false })
+                local name = sign.texthl .. "Cul"
+                vim.api.nvim_set_hl(0, name, { fg = hl.fg, bg = cur_bg })
+                vim.fn.sign_define(sign.name, { culhl = name })
+            end
+        end, 100)
     end },
     { "powerman/vim-plugin-AnsiEsc" },
     { "vim-scripts/ReplaceWithRegister" },
