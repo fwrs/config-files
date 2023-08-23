@@ -89,19 +89,8 @@ require("lazy").setup {
         o.load()
         vim.cmd "highlight! link CursorLineNr CursorLine"
         vim.cmd "highlight! link CursorLineSign CursorLine"
-        vim.cmd "highlight! MiniStatuslineFilename guifg=#383A42"
-    end },
-    { "lewis6991/gitsigns.nvim", config = function()
-        require("gitsigns").setup()
-        vim.defer_fn(function()
-            local cl_bg = vim.api.nvim_get_hl(0, { name = "CursorLine", link = false }).bg
-            for _, sign in ipairs(vim.fn.sign_getdefined()) do
-                local hl = vim.api.nvim_get_hl(0, { name = sign.texthl, link = false })
-                local name = sign.texthl .. "Cul"
-                vim.api.nvim_set_hl(0, name, { fg = hl.fg, bg = cl_bg })
-                vim.fn.sign_define(sign.name, { culhl = name })
-            end
-        end, 100)
+        local fg =  require("onedark.palette")[vim.g.onedark_config.style].fg
+        vim.cmd("highlight! MiniStatuslineFilename guifg=" .. fg)
     end },
     { "powerman/vim-plugin-AnsiEsc" },
     { "vim-scripts/ReplaceWithRegister" },
@@ -221,5 +210,17 @@ require("lazy").setup {
     end },
     { "phaazon/hop.nvim", config = function()
         require("hop").setup()
+    end },
+    { "lewis6991/gitsigns.nvim", config = function()
+        require("gitsigns").setup()
+        vim.defer_fn(function()
+            local cl_bg = vim.api.nvim_get_hl(0, { name = "CursorLine", link = false }).bg
+            for _, sign in ipairs(vim.fn.sign_getdefined()) do
+                local hl = vim.api.nvim_get_hl(0, { name = sign.texthl, link = false })
+                local name = sign.texthl .. "Cul"
+                vim.api.nvim_set_hl(0, name, { fg = hl.fg, bg = cl_bg })
+                vim.fn.sign_define(sign.name, { culhl = name })
+            end
+        end, 100)
     end }
 }
