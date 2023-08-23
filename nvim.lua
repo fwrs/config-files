@@ -89,7 +89,7 @@ require("lazy").setup {
         o.load()
         vim.cmd "highlight! link CursorLineNr CursorLine"
         vim.cmd "highlight! link CursorLineSign CursorLine"
-        local fg =  require("onedark.palette")[vim.g.onedark_config.style].fg
+        local fg = require("onedark.palette")[vim.g.onedark_config.style].fg
         vim.cmd("highlight! MiniStatuslineFilename guifg=" .. fg)
     end },
     { "powerman/vim-plugin-AnsiEsc" },
