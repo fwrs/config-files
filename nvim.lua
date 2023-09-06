@@ -32,7 +32,7 @@ vim.g.rooter_silent_chdir = 1
 vim.g.loaded_netrwPlugin = 0
 
 -- keymaps
-vim.keymap.set("n", "<leader>nh", "<cmd>nohl<cr>")
+vim.keymap.set("n", "<leader>n", "<cmd>nohl<cr>")
 vim.keymap.set("n", "x", "\"_x")
 vim.keymap.set("n", "<leader>l", "<cmd>set list!<cr>")
 vim.keymap.set("n", "<leader>+", "<c-a>")
@@ -58,6 +58,7 @@ vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
 vim.keymap.set("n", "<leader>rs", "<cmd>LspRestart<cr>")
 vim.keymap.set("n", "<leader>ha", "<cmd>HopAnywhere<cr>")
 vim.keymap.set("n", "<leader>hw", "<cmd>HopWord<cr>")
+vim.keymap.set("n", "<leader>cp", "<cmd>let @+=expand(\"%:p\")<cr>")
 
 -- autocmds
 vim.cmd.autocmd "InsertEnter * set norelativenumber"
@@ -118,6 +119,7 @@ require("lazy").setup {
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "nvim-telescope/telescope.nvim", config = function()
         require("telescope").setup {
+            defaults = { mappings = { i = { ["<M-a>"] = "select_all", ["<M-t>"] = "toggle_all" } } },
             pickers = { find_files = { disable_devicons = true } },
             extensions = { file_browser = { disable_devicons = true, hijack_netrw = true } }
         }
