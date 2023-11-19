@@ -11,7 +11,3 @@ developer.mozilla.org##.top-banner:has(a[href*="ai-help"])
 developer.mozilla.org##a[href*="ai-help"]
 github.com##.react-code-size-details-banner:has(.octicon-copilot)
 github.com##.react-code-size-details-in-header:has(.octicon-copilot)
-youtube.com##+js(set, yt.config_.openPopupConfig.supportedPopups.adBlockMessageViewModel, false)
-youtube.com##+js(set, Object.prototype.adBlocksFound, 0)
-youtube.com##+js(set, ytplayer.config.args.raw_player_response.adPlacements, [])
-youtube.com##+js(set, Object.prototype.hasAllowedInstreamAd, true)
