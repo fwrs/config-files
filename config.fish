@@ -10,6 +10,7 @@ set -gx MANPAGER "nvim +Man!"
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
+set -gx GPG_TTY (tty)
 
 fish_vi_key_bindings
 set fish_cursor_default block
@@ -55,3 +56,4 @@ function fish_title
         end
     end
 end
+
