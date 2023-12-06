@@ -2,8 +2,6 @@
     name = Ilya K.
     email = ilyusha_k@icloud.com
     signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILIXkGiXNWzcnIs3vWhcJOkSvElEDRacHoDIo4j7unKc
-[gpg "ssh"]
-    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [core]
     excludesFile = ~/.gitignore_global
     editor = "nvim"
@@ -23,6 +21,8 @@
     followTags = true
 [gpg]
     format = ssh
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [commit]
     gpgSign = true
 [rerere]
