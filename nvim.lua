@@ -177,7 +177,7 @@ require("lazy").setup {
             vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-            vim.keymap.set("n", "<leader>rn", "<cmd>IncRename", opts)
+            vim.keymap.set("n", "<leader>rn", "<cmd>IncRename<cr>", opts)
             vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
             vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
