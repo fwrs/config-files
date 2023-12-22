@@ -61,10 +61,10 @@ vim.keymap.set("n", "<leader>hw", "<cmd>HopWord<cr>")
 vim.keymap.set("n", "<leader>cp", "<cmd>let @+=expand(\"%:p\")<cr>")
 
 -- autocmds
-vim.cmd.autocmd "InsertEnter * set norelativenumber"
-vim.cmd.autocmd "InsertLeave * set relativenumber"
-vim.cmd.autocmd "BufWritePre * %s/\\S\\@<=\\s\\+$//e"
-vim.cmd.autocmd "BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"redrawstatus!\") end, 100)"
+vim.cmd.autocmd("InsertEnter * set norelativenumber")
+vim.cmd.autocmd("InsertLeave * set relativenumber")
+vim.cmd.autocmd("BufWritePre * %s/\\S\\@<=\\s\\+$//e")
+vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"redrawstatus!\") end, 200)")
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -88,8 +88,8 @@ require("lazy").setup {
         local o = require("onedark")
         o.setup { style = "light", transparent = true }
         o.load()
-        vim.cmd "highlight! link CursorLineNr CursorLine"
-        vim.cmd "highlight! link CursorLineSign CursorLine"
+        vim.cmd("highlight! link CursorLineNr CursorLine")
+        vim.cmd("highlight! link CursorLineSign CursorLine")
         local fg = require("onedark.palette")[vim.g.onedark_config.style].fg
         vim.cmd("highlight! MiniStatuslineFilename guifg=" .. fg)
     end },
@@ -167,8 +167,8 @@ require("lazy").setup {
     { "neovim/nvim-lspconfig", config = function()
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        local on_attach = function(client, bufnr)
-            local opts = { noremap = true, silent = true, buffer = bufnr }
+        local on_attach = function(client, buffer)
+            local opts = { noremap = true, silent = true, buffer = buffer }
             vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts)
             vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
             vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
@@ -177,11 +177,24 @@ require("lazy").setup {
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
             vim.keymap.set({ "n", "v" }, "<leader>fmt", vim.lsp.buf.format, opts)
             vim.keymap.set({ "n", "v" }, "<leader>rn", vim.lsp.buf.rename, opts)
-            vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
+            vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=" .. buffer .. "<cr>", opts)
             vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
             vim.keymap.set({ "n", "v" }, "K", vim.lsp.buf.hover, opts)
+
+            if client.server_capabilities.inlayHintProvider then
+                vim.keymap.set(
+                    { "n", "v" },
+                    "<leader>hnt",
+                    function() vim.lsp.inlay_hint.enable(buffer, not vim.lsp.inlay_hint.is_enabled(buffer)) end,
+                    opts
+                )
+            end
+
+            if client.name == "eslint" then
+                client.server_capabilities.documentFormattingProvider = true
+            end
         end
         local capabilities = cmp_nvim_lsp.default_capabilities()
         local signs = { Error = "💢", Warn = "⚠️", Hint = "💬", Info = "ℹ️" }
@@ -197,11 +210,11 @@ require("lazy").setup {
         lspconfig["tsserver"].setup(default_config)
         lspconfig["eslint"].setup(default_config)
         lspconfig["sourcekit"].setup(default_config)
+        lspconfig["rust_analyzer"].setup(default_config)
     end },
     { "lukas-reineke/indent-blankline.nvim", config = function()
-        require("indent_blankline").setup {
-            show_current_context = true,
-            show_current_context_start = true
+        require("ibl").setup {
+            scope = { include = { node_type = { ["*"] = { "*" } } } }
         }
     end },
     { "norcalli/nvim-colorizer.lua", config = function()
