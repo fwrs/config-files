@@ -174,14 +174,14 @@ require("lazy").setup {
             vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
             vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
             vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
-            vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+            vim.keymap.set({ "n", "v" }, "<leader>fmt", vim.lsp.buf.format, opts)
+            vim.keymap.set({ "n", "v" }, "<leader>rn", vim.lsp.buf.rename, opts)
             vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
             vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+            vim.keymap.set({ "n", "v" }, "K", vim.lsp.buf.hover, opts)
         end
         local capabilities = cmp_nvim_lsp.default_capabilities()
         local signs = { Error = "💢", Warn = "⚠️", Hint = "💬", Info = "ℹ️" }
@@ -195,6 +195,7 @@ require("lazy").setup {
             single_file_support = true
         }
         lspconfig["tsserver"].setup(default_config)
+        lspconfig["eslint"].setup(default_config)
         lspconfig["sourcekit"].setup(default_config)
     end },
     { "lukas-reineke/indent-blankline.nvim", config = function()
