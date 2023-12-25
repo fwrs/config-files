@@ -213,9 +213,7 @@ require("lazy").setup {
         lspconfig["rust_analyzer"].setup(default_config)
     end },
     { "lukas-reineke/indent-blankline.nvim", config = function()
-        require("ibl").setup {
-            scope = { include = { node_type = { ["*"] = { "*" } } } }
-        }
+        require("ibl").setup()
     end },
     { "norcalli/nvim-colorizer.lua", config = function()
         require("colorizer").setup()
