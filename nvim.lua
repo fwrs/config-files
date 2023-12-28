@@ -155,15 +155,6 @@ require("lazy").setup {
             }
         }
     end },
-    { "williamboman/mason.nvim", config = function()
-        require("mason").setup()
-    end },
-    { "williamboman/mason-lspconfig.nvim", config = function()
-        require("mason-lspconfig").setup {
-            ensure_installed = { "tsserver" },
-            automatic_installation = true
-        }
-    end },
     { "neovim/nvim-lspconfig", config = function()
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
