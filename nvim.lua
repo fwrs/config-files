@@ -59,8 +59,8 @@ vim.keymap.set("n", "<leader>rs", "<cmd>LspRestart<cr>")
 vim.keymap.set("n", "<leader>ha", "<cmd>HopAnywhere<cr>")
 vim.keymap.set("n", "<leader>hw", "<cmd>HopWord<cr>")
 vim.keymap.set("n", "<leader>cp", "<cmd>let @+=expand(\"%:p\")<cr>")
-vim.cmd "xnoremap <silent> i/ :<c-u>normal! T/vt/<cr>"
-vim.cmd "onoremap <silent> i/ :<c-u>normal! T/vt/<cr>"
+vim.keymap.set("x", "i/", ":<c-u>normal! T/vt/<cr>", { silent = true })
+vim.keymap.set("o", "i/", ":<c-u>normal! T/vt/<cr>", { silent = true })
 
 -- autocmds
 vim.cmd.autocmd("InsertEnter * set norelativenumber")
