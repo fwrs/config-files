@@ -2,7 +2,7 @@
 # Theme: Fish Default
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(/usr/libexec/java_home)"
+set -x JAVA_HOME "$(/usr/libexec/java_home)"
 fish_add_path ~/Library/Python/3.9/bin
 fish_add_path ~/.cargo/bin
 
