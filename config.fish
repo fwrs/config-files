@@ -2,7 +2,8 @@
 # Theme: Fish Default
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-set -x JAVA_HOME "$(/usr/libexec/java_home)"
+set -gx JAVA_HOME "$(/usr/libexec/java_home)"
+set -gx DOCKER_HOST "unix://$HOME/.colima/docker.sock"
 fish_add_path ~/Library/Python/3.9/bin
 fish_add_path ~/.cargo/bin
 
