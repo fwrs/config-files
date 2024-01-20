@@ -1,3 +1,5 @@
+Include /Users/ilyakulinkovich/.colima/ssh_config
+
 Host workgit
     HostName github.com
     User git
