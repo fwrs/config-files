@@ -30,6 +30,8 @@ abbr -a pi "pod install"
 abbr -a piup "pod install --repo-update"
 abbr -a gcleanstale "git branch -vv | grep \": gone]\" | awk \"{print \\\$1}\" | xargs -p git branch -D"
 abbr -a xc "open \"\$(fd -I -d 1 -e xcworkspace | head -n 1)\""
+abbr -a idea "open -a \"IntelliJ IDEA CE\" ."
+abbr -a studio "open -a \"Android Studio\" ."
 
 function gss -a branch
     git stash && git switch $branch && git stash pop
