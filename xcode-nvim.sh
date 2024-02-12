@@ -11,7 +11,7 @@ tell application \"iTerm\"
         create tab with default profile
         delay 0.3
         tell current session
-            write text \"nvim \" & x
+            write text \"nvim \\\"\" & x & \"\\\"\"
         end tell
     end tell
 end tell"
