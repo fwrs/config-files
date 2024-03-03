@@ -227,5 +227,9 @@ require("lazy").setup {
                 vim.fn.sign_define(sign.name, { culhl = name })
             end
         end, 100)
-    end }
+    end },
+    { "folke/zen-mode.nvim", opts = {
+        window = { backdrop = 1, width = 0.6 },
+        plugins = { options = { laststatus = 3 } } }
+    }
 }
