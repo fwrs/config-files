@@ -121,12 +121,12 @@ require("lazy").setup {
     { "nvim-telescope/telescope.nvim", config = function()
         require("telescope").setup {
             defaults = { mappings = { i = { ["<M-a>"] = "select_all", ["<M-t>"] = "toggle_all" } } },
-            extensions = { file_browser = { hijack_netrw = true } }
+            extensions = { file_browser = { disable_devicons = true, hijack_netrw = true } }
         }
         require("telescope").load_extension "file_browser"
     end },
     { "echasnovski/mini.statusline", config = function()
-        require("mini.statusline").setup()
+        require("mini.statusline").setup { use_icons = false }
     end },
     { "L3MON4D3/LuaSnip" },
     { "saadparwaiz1/cmp_luasnip" },
@@ -211,7 +211,7 @@ require("lazy").setup {
         require("colorizer").setup()
     end },
     { "folke/which-key.nvim", config = function()
-        require("which-key").setup()
+        require("which-key").setup { icons = { separator = ":" } }
     end },
     { "phaazon/hop.nvim", config = function()
         require("hop").setup()
