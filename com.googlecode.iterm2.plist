@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Command</key>
-	<string>/opt/homebrew/bin/fish</string>
+	<string></string>
 	<key>CopySelection</key>
 	<false/>
 	<key>Custom Color Presets</key>
@@ -744,7 +744,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>92</integer>
+			<integer>80</integer>
 			<key>Command</key>
 			<string>/opt/homebrew/bin/fish</string>
 			<key>Cursor Color</key>
@@ -1035,7 +1035,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>PragmataProMono-Regular 12</string>
+			<string>Codelia-Regular 11</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1114,6 +1114,8 @@
 			<string>/Users/ilyakulinkovich</string>
 		</dict>
 	</array>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict/>
 	<key>PromptOnQuit</key>
