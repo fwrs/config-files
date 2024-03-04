@@ -5,23 +5,23 @@
 	<key>DVTConsoleDebuggerInputTextColor</key>
 	<string>0 0 0 1</string>
 	<key>DVTConsoleDebuggerInputTextFont</key>
-	<string>PragmataProMonoLiga-Regular - 13.0</string>
+	<string>CodeliaLigatures-Regular - 12.0</string>
 	<key>DVTConsoleDebuggerOutputTextColor</key>
 	<string>0 0 0 1</string>
 	<key>DVTConsoleDebuggerOutputTextFont</key>
-	<string>PragmataProMonoLiga-Regular - 13.0</string>
+	<string>CodeliaLigatures-Regular - 12.0</string>
 	<key>DVTConsoleDebuggerPromptTextColor</key>
 	<string>0.152941 0.494118 0.117647 1</string>
 	<key>DVTConsoleDebuggerPromptTextFont</key>
-	<string>PragmataProMonoLiga-Bold - 13.0</string>
+	<string>CodeliaLigatures-Bold - 12.0</string>
 	<key>DVTConsoleExectuableInputTextColor</key>
 	<string>0 0 0 1</string>
 	<key>DVTConsoleExectuableInputTextFont</key>
-	<string>PragmataProMonoLiga-Regular - 13.0</string>
+	<string>CodeliaLigatures-Regular - 12.0</string>
 	<key>DVTConsoleExectuableOutputTextColor</key>
 	<string>0 0 0 1</string>
 	<key>DVTConsoleExectuableOutputTextFont</key>
-	<string>PragmataProMonoLiga-Regular - 13.0</string>
+	<string>CodeliaLigatures-Regular - 12.0</string>
 	<key>DVTConsoleTextBackgroundColor</key>
 	<string>1 1 1 1</string>
 	<key>DVTConsoleTextInsertionPointColor</key>
@@ -164,69 +164,69 @@
 	<key>DVTSourceTextSyntaxFonts</key>
 	<dict>
 		<key>xcode.syntax.attribute</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.character</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.comment</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.comment.doc</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.comment.doc.keyword</key>
-		<string>PragmataProMonoLiga-Bold - 13.0</string>
+		<string>CodeliaLigatures-Bold - 12.0</string>
 		<key>xcode.syntax.declaration.other</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.declaration.type</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.class</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.class.system</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.constant</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.constant.system</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.function</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.function.system</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.macro</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.macro.system</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.type</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.type.system</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.variable</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.identifier.variable.system</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.keyword</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.mark</key>
-		<string>PragmataProMonoLiga-Bold - 13.0</string>
+		<string>CodeliaLigatures-Bold - 12.0</string>
 		<key>xcode.syntax.markup.code</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.number</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.plain</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.preprocessor</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.regex</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.regex.capturename</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.regex.charname</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.regex.number</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.regex.other</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.string</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 		<key>xcode.syntax.url</key>
-		<string>PragmataProMonoLiga-Regular - 13.0</string>
+		<string>CodeliaLigatures-Regular - 12.0</string>
 	</dict>
 </dict>
 </plist>
