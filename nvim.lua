@@ -223,7 +223,7 @@ require("lazy").setup {
         require("hop").setup()
     end },
     { "lewis6991/gitsigns.nvim", config = function()
-        require("gitsigns").setup()
+        require("gitsigns").setup { _extmark_signs = false }
         vim.defer_fn(function()
             local cl_bg = vim.api.nvim_get_hl(0, { name = "CursorLine", link = false }).bg
             for _, sign in ipairs(vim.fn.sign_getdefined()) do
