@@ -9,3 +9,11 @@ twitter.com##div[aria-label="Trending"] div div:has(aside[aria-label="Subscribe 
 yandex.*/pogoda$csp=script-src "none"
 developer.mozilla.org##.top-banner:has(a[href*="ai-help"])
 developer.mozilla.org##a[href*="ai-help"]
+github.com##.react-code-text, pre, code:style(font-family: "Codelia" !important)
+github.com##*:style(--fontStack-monospace: "Codelia" !important)
+gitlab.com##*:style(--default-mono-font: "Codelia" !important)
+bitbucket.org##.code-component, code, .monaco-editor *:style(font-family: "Codelia" !important)
+developer.mozilla.org##*:style(--font-code: "Codelia" !important)
+developer.apple.com##code:style(font-family: "Codelia" !important)
+developer.android.com##*:style(--devsite-code-font-family: "Codelia" !important)
+stackoverflow.com##*:style(--ff-mono: "Codelia" !important)
