@@ -27,6 +27,11 @@ vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.linebreak = true
 vim.opt.showbreak = string.rep(" ", 3)
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = math.maxinteger
+vim.opt.foldlevelstart = math.maxinteger
+vim.opt.foldenable = false
 vim.g.mapleader = " "
 vim.g.rooter_silent_chdir = 1
 vim.g.loaded_netrwPlugin = 0
@@ -66,6 +71,7 @@ vim.cmd.autocmd("InsertEnter * set norelativenumber")
 vim.cmd.autocmd("InsertLeave * set relativenumber")
 vim.cmd.autocmd("BufWritePre * %s/\\S\\@<=\\s\\+$//e")
 vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"redrawstatus!\") end, 200)")
+vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"normal zR\") end, 200)")
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
