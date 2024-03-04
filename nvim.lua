@@ -230,6 +230,6 @@ require("lazy").setup {
     end },
     { "folke/zen-mode.nvim", opts = {
         window = { backdrop = 1, width = 0.7 },
-        plugins = { options = { laststatus = 3 } } }
-    }
+        plugins = { options = { laststatus = 3 } }
+    } }
 }
