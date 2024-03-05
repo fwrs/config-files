@@ -119,7 +119,7 @@ require("lazy").setup {
             ensure_installed = { "c", "vim", "vimdoc", "query",
                                  "swift", "typescript", "javascript",
                                  "json", "gitignore", "tsx", "yaml",
-                                 "html", "css", "ruby" },
+                                 "html", "css", "ruby", "kotlin" },
             auto_install = true
         }
     end },
@@ -129,7 +129,7 @@ require("lazy").setup {
             defaults = { mappings = { i = { ["<M-a>"] = "select_all", ["<M-t>"] = "toggle_all" } } },
             extensions = { file_browser = { disable_devicons = true, hijack_netrw = true } }
         }
-        require("telescope").load_extension "file_browser"
+        require("telescope").load_extension("file_browser")
     end },
     { "echasnovski/mini.statusline", config = function()
         require("mini.statusline").setup { use_icons = false }
@@ -180,28 +180,17 @@ require("lazy").setup {
             vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
             vim.keymap.set({ "n", "v" }, "K", vim.lsp.buf.hover, opts)
-
-            if client.server_capabilities.inlayHintProvider then
-                vim.keymap.set(
-                    { "n", "v" },
-                    "<leader>hnt",
-                    function() vim.lsp.inlay_hint.enable(buffer, not vim.lsp.inlay_hint.is_enabled(buffer)) end,
-                    opts
-                )
-            end
-
-            if client.name == "eslint" then
-                client.server_capabilities.documentFormattingProvider = true
-            end
+            vim.keymap.set({ "n", "v" }, "<leader>hnt", function()
+                vim.lsp.inlay_hint.enable(buffer, not vim.lsp.inlay_hint.is_enabled(buffer))
+            end, opts)
         end
-        local capabilities = cmp_nvim_lsp.default_capabilities()
         local signs = { Error = "💢", Warn = "⚠️", Hint = "💬", Info = "ℹ️" }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+            vim.fn.sign_define(hl, { text = icon, texthl = hl })
         end
         local default_config = {
-            capabilities = capabilities,
+            capabilities = cmp_nvim_lsp.default_capabilities(),
             on_attach = on_attach,
             single_file_support = true
         }
@@ -211,7 +200,7 @@ require("lazy").setup {
         lspconfig["rust_analyzer"].setup(default_config)
     end },
     { "lukas-reineke/indent-blankline.nvim", config = function()
-        require("ibl").setup()
+        require("ibl").setup { scope = { show_start = false, show_end = false } }
     end },
     { "norcalli/nvim-colorizer.lua", config = function()
         require("colorizer").setup()
@@ -228,5 +217,8 @@ require("lazy").setup {
     { "folke/zen-mode.nvim", opts = {
         window = { backdrop = 1, width = 0.8 },
         plugins = { options = { laststatus = 3 } }
-    } }
+    } },
+    { "RRethy/vim-illuminate", config = function()
+        require("illuminate").configure { min_count_to_highlight = 2 }
+    end }
 }
