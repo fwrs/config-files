@@ -71,8 +71,7 @@ vim.keymap.set({ "x", "o" }, "i/", ":<c-u>normal! T/vt/<cr>", { silent = true })
 vim.cmd.autocmd("InsertEnter * set norelativenumber")
 vim.cmd.autocmd("InsertLeave * set relativenumber")
 vim.cmd.autocmd("BufWritePre * %s/\\S\\@<=\\s\\+$//e")
-vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"redrawstatus!\") end, 200)")
-vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"normal zR\") end, 200)")
+vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"redrawstatus! | normal zR\") end, 200)")
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -96,6 +95,7 @@ require("lazy").setup {
         local o = require("onedark")
         o.setup { style = "light", transparent = true }
         o.load()
+        vim.cmd("highlight CursorLine guibg=#f6f6f6")
         vim.cmd("highlight! link CursorLineNr CursorLine")
         vim.cmd("highlight! link CursorLineSign CursorLine")
         local fg = require("onedark.palette")[vim.g.onedark_config.style].fg
@@ -204,7 +204,7 @@ require("lazy").setup {
         require("ibl").setup { scope = { show_start = false, show_end = false } }
     end },
     { "norcalli/nvim-colorizer.lua", config = function()
-        require("colorizer").setup()
+        require("colorizer").setup(nil, { names = false, RRGGBBAA = true })
     end },
     { "folke/which-key.nvim", config = function()
         require("which-key").setup { icons = { separator = ":" } }
