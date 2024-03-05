@@ -35,6 +35,7 @@ vim.opt.foldenable = false
 vim.g.mapleader = " "
 vim.g.rooter_silent_chdir = 1
 vim.g.loaded_netrwPlugin = 0
+vim.filetype.add { extension = { metal = "cpp" } }
 
 -- keymaps
 vim.keymap.set("n", "<leader>n", "<cmd>nohl<cr>")
