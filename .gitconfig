@@ -1,6 +1,6 @@
 [user]
     name = Ilya K.
-    email = ilyusha_k@icloud.com
+    email = ilyafwrs@gmail.com
     signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILIXkGiXNWzcnIs3vWhcJOkSvElEDRacHoDIo4j7unKc
 [core]
     excludesFile = ~/.gitignore_global
