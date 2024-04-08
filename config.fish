@@ -47,15 +47,15 @@ function fish_title
     if not set -q INSIDE_EMACS; or string match -vq "*,term:*" -- $INSIDE_EMACS
         set -l ssh
         set -q SSH_TTY
-        and set ssh "["(prompt_hostname | string sub -l 10 | string collect)"]"
+        and set ssh "["(prompt_hostname | string sub -l 10 | string collect | string trim)"]"
         if set -q argv[1]
-            echo -- $ssh (string sub -l 40 -- $argv[1]) — (prompt_pwd -d 1 -D 1)
+            echo -- $ssh (string sub -l 40 -- $argv[1] | string trim) — (prompt_pwd -d 1 -D 1)
         else
             set -l command (status current-command)
             if test "$command" = fish
                 echo -- $ssh (prompt_pwd -d 1 -D 1)
             else
-                echo -- $ssh (string sub -l 40 -- $command) — (prompt_pwd -d 1 -D 1)
+                echo -- $ssh (string sub -l 40 -- $command | string trim) — (prompt_pwd -d 1 -D 1)
             end
         end
     end
