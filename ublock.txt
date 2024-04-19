@@ -10,6 +10,7 @@ developer.mozilla.org##.top-banner:has(a[href*="ai-help"])
 developer.mozilla.org##a[href*="ai-help"]
 github.com##.react-code-text, pre, code, .blob-code-inner, .blob-num, .CodeMirror-lines, kbd, .file-info, .commit .sha-block, .commit .sha:style(font-family: "PragmataPro Mono" !important)
 github.com##:root:style(--fontStack-monospace: "PragmataPro Mono" !important)
+github.com##.react-blob-print-hide:style(font-family: "PragmataPro Mono" !important)
 gitlab.com##:root:style(--default-mono-font: "PragmataPro Mono" !important)
 bitbucket.org##.code-component, code, .monaco-editor *:style(font-family: "PragmataPro Mono" !important)
 developer.mozilla.org##:root:style(--font-code: "PragmataPro Mono" !important)
@@ -30,4 +31,3 @@ cocoapods.org##code, kbd, pre, samp:style(font-family: "PragmataPro Mono" !impor
 rubygems.org##code, kbd, pre, samp, .gem__code:style(font-family: "PragmataPro Mono" !important)
 hub.docker.com##code:style(font-family: "PragmataPro Mono" !important)
 yandex.*/pogoda$csp=script-src "none"
-
