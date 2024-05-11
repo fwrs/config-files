@@ -14,6 +14,7 @@ github.com##.react-blob-print-hide:style(font-family: "PragmataPro Mono" !import
 gitlab.com##:root:style(--default-mono-font: "PragmataPro Mono" !important)
 bitbucket.org##.code-component, code, .monaco-editor *:style(font-family: "PragmataPro Mono" !important)
 developer.mozilla.org##:root:style(--font-code: "PragmataPro Mono" !important)
+mdn.mozilla.net##:root:style(--font-code: "PragmataPro Mono" !important)
 developer.apple.com##code:style(font-family: "PragmataPro Mono" !important)
 developer.android.com##:root:style(--devsite-code-font-family: "PragmataPro Mono" !important)
 stackoverflow.com##*:style(--ff-mono: "PragmataPro Mono" !important)
