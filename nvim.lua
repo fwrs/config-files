@@ -182,7 +182,7 @@ require("lazy").setup {
             vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
             vim.keymap.set({ "n", "v" }, "K", vim.lsp.buf.hover, opts)
             vim.keymap.set({ "n", "v" }, "<leader>hnt", function()
-                vim.lsp.inlay_hint.enable(buffer, not vim.lsp.inlay_hint.is_enabled(buffer))
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, opts)
         end
         local signs = { Error = "💢", Warn = "⚠️", Hint = "💬", Info = "ℹ️" }
