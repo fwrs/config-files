@@ -3,9 +3,11 @@ www.youtube.com###sbSkipIconControlBarImage:style(opacity: 0 !important; width: 
 www.twitch.tv##.front-page-carousel:remove()
 onepiece.fandom.com##.popular-pages
 onepiece.fandom.com##.render-wiki-recommendations-right-rail
-twitter.com##a[href="/i/verified-choose"]
-twitter.com##div[aria-label="Trending"] div div:has(aside[aria-label="Get Verified"])
-twitter.com##div[aria-label="Trending"] div div:has(aside[aria-label="Subscribe to Premium"])
+/(twitter|x).com/##a[href="/i/verified-choose"]
+/(twitter|x).com/##a[href="/i/grok"]
+/(twitter|x).com/##a[href="/i/premium_sign_up"]
+/(twitter|x).com/##div[aria-label="Trending"] div div:has(aside[aria-label="Get Verified"])
+/(twitter|x).com/##div[aria-label="Trending"] div div:has(aside[aria-label="Subscribe to Premium"])
 developer.mozilla.org##.top-banner:has(a[href*="ai-help"])
 developer.mozilla.org##a[href*="ai-help"]
 github.com##.react-code-text, pre, code, .blob-code-inner, .blob-num, .CodeMirror-lines, kbd, .file-info, .commit .sha-block, .commit .sha:style(font-family: "PragmataPro Mono" !important)
