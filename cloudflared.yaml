@@ -1,0 +1,4 @@
+proxy-dns: true
+proxy-dns-upstream:
+  - https://9.9.9.10/dns-query
+  - https://149.112.112.10/dns-query
