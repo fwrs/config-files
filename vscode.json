@@ -6,7 +6,6 @@
     "breadcrumbs.enabled": false,
     "window.commandCenter": false,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Default Light Modern",
     "workbench.editor.empty.hint": "hidden",
     "workbench.layoutControl.enabled": false,
     "workbench.enableExperiments": false,
