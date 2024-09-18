@@ -58,5 +58,6 @@
         "editorOverviewRuler.wordHighlightStrongForeground": "#0000",
         "editorOverviewRuler.wordHighlightTextForeground": "#0000",
         "editorHoverWidget.highlightForeground": "#0000"
-    }
+    },
+    "workbench.colorTheme": "Default Light Modern"
 }
