@@ -10,7 +10,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
+vim.opt.background = "light"
 vim.opt.signcolumn = "yes"
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard:append("unnamedplus")
@@ -94,9 +94,10 @@ require("lazy").setup {
     { "airblade/vim-rooter" },
     { "navarasu/onedark.nvim", config = function()
         local o = require("onedark")
-        o.setup { style = "warmer", transparent = true }
+        o.setup { style = "light", transparent = true }
         o.load()
-        vim.cmd("highlight CursorLine guibg=#26272c")
+        vim.cmd("highlight CursorLine guibg=#f6f6f6")
+        vim.cmd("highlight MatchParen guibg=#d5dbde")
         vim.cmd("highlight! link CursorLineNr CursorLine")
         vim.cmd("highlight! link CursorLineSign CursorLine")
         local fg = require("onedark.palette")[vim.g.onedark_config.style].fg
