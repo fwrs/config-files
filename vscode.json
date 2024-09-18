@@ -6,6 +6,7 @@
     "breadcrumbs.enabled": false,
     "window.commandCenter": false,
     "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Default Light Modern",
     "workbench.editor.empty.hint": "hidden",
     "workbench.layoutControl.enabled": false,
     "workbench.enableExperiments": false,
@@ -58,6 +59,5 @@
         "editorOverviewRuler.wordHighlightStrongForeground": "#0000",
         "editorOverviewRuler.wordHighlightTextForeground": "#0000",
         "editorHoverWidget.highlightForeground": "#0000"
-    },
-    "workbench.colorTheme": "Default Light Modern"
+    }
 }
