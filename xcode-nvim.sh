@@ -1,17 +1,12 @@
 #!/bin/sh
 # I bind this to ⌃⌘,
-osascript -e "
+path=$(osascript -e "
 tell application \"Xcode\"
     set x to path of last item of source documents
 end tell
 
-tell application \"iTerm\"
-    activate
-    tell current window
-        create tab with default profile
-        delay 0.3
-        tell current session
-            write text \"nvim \\\"\" & x & \"\\\"\"
-        end tell
-    end tell
-end tell"
+return x")
+
+echo "#!/bin/sh\n/opt/homebrew/bin/fish -C \"nvim \\\"$path\\\"\"" > ~/.xcode/launch_nvim.command
+chmod +x ~/.xcode/launch_nvim.command
+open ~/.xcode/launch_nvim.command
