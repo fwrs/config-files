@@ -32,6 +32,7 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = math.maxinteger
 vim.opt.foldlevelstart = math.maxinteger
 vim.opt.foldenable = false
+vim.opt.shell = "/opt/homebrew/bin/fish"
 vim.g.editorconfig = false
 vim.g.mapleader = " "
 vim.g.rooter_silent_chdir = 1
