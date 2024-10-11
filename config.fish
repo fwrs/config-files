@@ -35,8 +35,6 @@ function gff -a branch
     git fetch origin $branch:$branch
 end
 
-source ~/.iterm2_shell_integration.fish
-
 function fish_title
     if not set -q INSIDE_EMACS; or string match -vq "*,term:*" -- $INSIDE_EMACS
         set -l ssh
