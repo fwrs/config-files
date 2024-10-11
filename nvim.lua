@@ -72,7 +72,7 @@ vim.keymap.set({ "x", "o" }, "i/", ":<c-u>normal! T/vt/<cr>", { silent = true })
 -- autocmds
 vim.cmd.autocmd("InsertEnter * set norelativenumber")
 vim.cmd.autocmd("InsertLeave * set relativenumber")
-vim.cmd.autocmd("TermOpen * setlocal nonumber norelativenumber | startinsert}")
+vim.cmd.autocmd("TermOpen * setlocal nonumber norelativenumber | startinsert")
 vim.cmd.autocmd("BufWritePre * %s/\\S\\@<=\\s\\+$//e")
 vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"redrawstatus! | normal zR\") end, 200)")
 
