@@ -3,6 +3,7 @@ shell-integration = fish
 
 theme = AtomOneLight
 background = #ffffff
+window-colorspace = srgb
 
 font-family = "PragmataPro Mono"
 font-size = 12
