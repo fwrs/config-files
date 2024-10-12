@@ -1,10 +1,16 @@
 # Prompt: Informative VCS
 # Theme: Fish Default
 
-# Render the title ASAP to prevent weird flashes
+# Manually set title to avoid flashing the default one
 if set -q fish_startup_cwd
-    cd $fish_startup_cwd
-    echo -n -e "\e]0;" (fish_title "" $fish_startup_cwd) "\a"
+    cd (string replace "~" ~ $fish_startup_cwd)
+
+    if set -q fish_startup_command
+        echo -n -e "\e]0;" (string sub -l 40 -- $fish_startup_command | string trim) — (prompt_pwd -d 1 -D 1) "\a"
+    else
+        echo -n -e "\e]0;" (prompt_pwd -d 1 -D 1) "\a"
+    end
+    
     set -e fish_startup_cwd
 else
     echo -n -e "\e]0;~\a"
@@ -57,7 +63,7 @@ function fish_title
 
     if set -q argv[2]
         set -f path $argv[2]
-        if not set -q argv[1]; or test "$argv[1]" = ""
+        if not test -n "$argv[1]"
             set -f command "fish"
         end
     else
@@ -72,8 +78,6 @@ function fish_title
 end
 
 if set -q fish_startup_command
-    echo -n -e "\e]0;" (fish_title $fish_startup_command $fish_startup_cwd) "\a"
-
     eval $fish_startup_command
     set -e fish_startup_command
 end
