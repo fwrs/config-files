@@ -7,10 +7,15 @@ end tell
 
 return x")
 
+dir="$PWD"
+suffix="/.swiftpm/xcode"
+dir=${dir//$suffix/}
+path=${path#"$dir/"}
+
 echo "
 #!/bin/sh
+export fish_startup_cwd=\"$dir\"
 export fish_startup_command=\"nvim \\\"$path\\\"\"
-export fish_startup_cwd=\"~\"
 /opt/homebrew/bin/fish -i" > ~/.xcode/launch_nvim.command
 
 chmod +x ~/.xcode/launch_nvim.command
