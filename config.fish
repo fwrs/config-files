@@ -1,6 +1,8 @@
 # Prompt: Informative VCS
 # Theme: Fish Default
 
+# Render the title ASAP to prevent weird flashes
+echo -n -e "\e]0;~\a"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 set -gx JAVA_HOME "$(/usr/libexec/java_home)"
 set -gx DOCKER_HOST "unix://$HOME/.colima/docker.sock"
@@ -65,8 +67,15 @@ function fish_title
 end
 
 if set -q fish_startup_command; or set -q fish_startup_cwd
-    echo -n -e "\e]0;" (fish_title $fish_startup_command $fish_startup_cwd) "\a"
+    function render_title
+        echo -n -e "\e]0;" (fish_title $fish_startup_command $fish_startup_cwd) "\a"
+    end
+    
+    # Really buggy behavior with ghostty so I call it twice
+    render_title
     cd $fish_startup_cwd
+    render_title
+
     eval $fish_startup_command
     set -e fish_startup_command
     set -e fish_startup_cwd
