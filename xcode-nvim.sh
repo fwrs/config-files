@@ -11,7 +11,7 @@ echo "
 #!/bin/sh
 export fish_startup_command=\"nvim \\\"$path\\\"\"
 export fish_startup_cwd=\"~\"
-/opt/homebrew/bin/fish -i" ~/.xcode/launch_nvim.command
+/opt/homebrew/bin/fish -i" > ~/.xcode/launch_nvim.command
 
 chmod +x ~/.xcode/launch_nvim.command
 open ~/.xcode/launch_nvim.command
