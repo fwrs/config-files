@@ -3,7 +3,7 @@
 
 # Manually set the title so that it renders as fast as possible
 if set -q fish_startup_cwd
-    cd (string replace "~" ~ $fish_startup_cwd)
+    cd $fish_startup_cwd
 
     if set -q fish_startup_command
         echo -n -e "\e]0;" (string sub -l 40 -- $fish_startup_command | string trim) — (prompt_pwd -d 1 -D 1) "\a"
