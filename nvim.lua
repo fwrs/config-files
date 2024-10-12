@@ -121,7 +121,7 @@ require("lazy").setup {
             highlight = { enable = true, disable = { "swift" } },
             indent = { enable = true },
             autotag = { enable = true },
-            auto_install = true
+            auto_install = true,
             -- ensure_installed = { "c", "vim", "vimdoc", "query",
             --                      "swift", "typescript", "javascript",
             --                      "json", "gitignore", "tsx", "yaml",
