@@ -1,7 +1,7 @@
 # Prompt: Informative VCS
 # Theme: Fish Default
 
-# Manually set title to avoid flashing the default one
+# Manually set the title so that it renders as fast as possible
 if set -q fish_startup_cwd
     cd (string replace "~" ~ $fish_startup_cwd)
 
@@ -12,6 +12,8 @@ if set -q fish_startup_cwd
     end
     
     set -e fish_startup_cwd
+else if set -q fish_startup_command
+    echo -n -e "\e]0;" (string sub -l 40 -- $fish_startup_command | string trim) — "~\a"
 else
     echo -n -e "\e]0;~\a"
 end
