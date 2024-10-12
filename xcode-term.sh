@@ -7,7 +7,7 @@ dir=${dir//$suffix/}
 
 echo "
 #!/bin/sh
-export fish_startup_cwd=$dir
+export fish_startup_cwd=\"$dir\"
 /opt/homebrew/bin/fish -i" > ~/.xcode/launch_term.command
 
 chmod +x ~/.xcode/launch_term.command
