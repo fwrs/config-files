@@ -40,15 +40,34 @@ function fish_title
         set -l ssh
         set -q SSH_TTY
         and set ssh "["(prompt_hostname | string sub -l 10 | string collect | string trim)"]"
+
         if set -q argv[1]
-            echo -- $ssh (string sub -l 40 -- $argv[1] | string trim) — (prompt_pwd -d 1 -D 1)
+            set -f command $argv[1]
         else
-            set -l command (status current-command)
-            if test "$command" = fish
-                echo -- $ssh (prompt_pwd -d 1 -D 1)
-            else
-                echo -- $ssh (string sub -l 40 -- $command | string trim) — (prompt_pwd -d 1 -D 1)
+            set -f command (status current-command)
+        end
+
+        if set -q argv[2]
+            set -f path $argv[2]
+            if not set -q argv[1]; or test "$argv[1]" = ""
+                set -f command "fish"
             end
+        else
+            set -f path (prompt_pwd -d 1 -D 1)
+        end
+
+        if test "$command" = fish
+            echo -- $ssh $path
+        else
+            echo -- $ssh (string sub -l 40 -- $command | string trim) — $path
         end
     end
+end
+
+if set -q fish_startup_command; or set -q fish_startup_cwd
+    echo -n -e "\e]0;" (fish_title $fish_startup_command $fish_startup_cwd) "\a"
+    cd $fish_startup_cwd
+    eval $fish_startup_command
+    set -e fish_startup_command
+    set -e fish_startup_cwd
 end
