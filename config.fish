@@ -31,6 +31,11 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx GPG_TTY (tty)
 
+if set -q fish_startup_command
+    eval $fish_startup_command
+    set -e fish_startup_command
+end
+
 abbr -a gl "git log --graph --all --oneline --decorate --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\""
 abbr -a gfixup "git commit -a --amend --no-edit"
 abbr -a gsw "git switch"
@@ -68,9 +73,4 @@ function fish_title
     else
         echo -- $ssh (string sub -l 40 -- $command | string trim) — (prompt_pwd -d 1 -D 1)
     end
-end
-
-if set -q fish_startup_command
-    eval $fish_startup_command
-    set -e fish_startup_command
 end
