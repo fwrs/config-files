@@ -2,7 +2,14 @@
 # Theme: Fish Default
 
 # Render the title ASAP to prevent weird flashes
-echo -n -e "\e]0;~\a"
+if set -q fish_startup_cwd
+    cd $fish_startup_cwd
+    echo -n -e "\e]0;" (fish_title "" $fish_startup_cwd) "\a"
+    set -e fish_startup_cwd
+else
+    echo -n -e "\e]0;~\a"
+end
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 set -gx JAVA_HOME "$(/usr/libexec/java_home)"
 set -gx DOCKER_HOST "unix://$HOME/.colima/docker.sock"
@@ -38,45 +45,35 @@ function gff -a branch
 end
 
 function fish_title
-    if not set -q INSIDE_EMACS; or string match -vq "*,term:*" -- $INSIDE_EMACS
-        set -l ssh
-        set -q SSH_TTY
-        and set ssh "["(prompt_hostname | string sub -l 10 | string collect | string trim)"]"
+    set -l ssh
+    set -q SSH_TTY
+    and set ssh "["(prompt_hostname | string sub -l 10 | string collect | string trim)"]"
 
-        if set -q argv[1]
-            set -f command $argv[1]
-        else
-            set -f command (status current-command)
-        end
+    if set -q argv[1]
+        set -f command $argv[1]
+    else
+        set -f command (status current-command)
+    end
 
-        if set -q argv[2]
-            set -f path $argv[2]
-            if not set -q argv[1]; or test "$argv[1]" = ""
-                set -f command "fish"
-            end
-        else
-            set -f path (prompt_pwd -d 1 -D 1)
+    if set -q argv[2]
+        set -f path $argv[2]
+        if not set -q argv[1]; or test "$argv[1]" = ""
+            set -f command "fish"
         end
+    else
+        set -f path (prompt_pwd -d 1 -D 1)
+    end
 
-        if test "$command" = fish
-            echo -- $ssh $path
-        else
-            echo -- $ssh (string sub -l 40 -- $command | string trim) — $path
-        end
+    if test "$command" = fish
+        echo -- $ssh $path
+    else
+        echo -- $ssh (string sub -l 40 -- $command | string trim) — $path
     end
 end
 
-if set -q fish_startup_command; or set -q fish_startup_cwd
-    function render_title
-        echo -n -e "\e]0;" (fish_title $fish_startup_command $fish_startup_cwd) "\a"
-    end
-    
-    # Really buggy behavior with ghostty so I call it twice
-    render_title
-    cd $fish_startup_cwd
-    render_title
+if set -q fish_startup_command
+    echo -n -e "\e]0;" (fish_title $fish_startup_command $fish_startup_cwd) "\a"
 
     eval $fish_startup_command
     set -e fish_startup_command
-    set -e fish_startup_cwd
 end
