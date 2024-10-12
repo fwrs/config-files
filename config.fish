@@ -63,19 +63,10 @@ function fish_title
         set -f command (status current-command)
     end
 
-    if set -q argv[2]
-        set -f path $argv[2]
-        if not test -n "$argv[1]"
-            set -f command "fish"
-        end
-    else
-        set -f path (prompt_pwd -d 1 -D 1)
-    end
-
     if test "$command" = fish
-        echo -- $ssh $path
+        echo -- $ssh (prompt_pwd -d 1 -D 1)
     else
-        echo -- $ssh (string sub -l 40 -- $command | string trim) — $path
+        echo -- $ssh (string sub -l 40 -- $command | string trim) — (prompt_pwd -d 1 -D 1)
     end
 end
 
