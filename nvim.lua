@@ -118,14 +118,14 @@ require("lazy").setup {
     { "windwp/nvim-ts-autotag" },
     { "nvim-treesitter/nvim-treesitter", config = function()
         require("nvim-treesitter.configs").setup {
-            highlight = { enable = true },
+            highlight = { enable = true, disable = { "swift" } },
             indent = { enable = true },
             autotag = { enable = true },
-            ensure_installed = { "c", "vim", "vimdoc", "query",
-                                 "swift", "typescript", "javascript",
-                                 "json", "gitignore", "tsx", "yaml",
-                                 "html", "css", "ruby", "kotlin" },
-            auto_install = true
+            -- ensure_installed = { "c", "vim", "vimdoc", "query",
+            --                      "swift", "typescript", "javascript",
+            --                      "json", "gitignore", "tsx", "yaml",
+            --                      "html", "css", "ruby", "kotlin" },
+            -- auto_install = true
         }
     end },
     { "nvim-telescope/telescope-file-browser.nvim" },
@@ -199,7 +199,7 @@ require("lazy").setup {
             on_attach = on_attach,
             single_file_support = true
         }
-        lspconfig["tsserver"].setup(default_config)
+        lspconfig["ts_ls"].setup(default_config)
         lspconfig["eslint"].setup(default_config)
         lspconfig["sourcekit"].setup(default_config)
         lspconfig["rust_analyzer"].setup(default_config)
@@ -207,23 +207,7 @@ require("lazy").setup {
     { "lukas-reineke/indent-blankline.nvim", config = function()
         require("ibl").setup { scope = { show_start = false, show_end = false } }
     end },
-    { "norcalli/nvim-colorizer.lua", config = function()
-        require("colorizer").setup(nil, { names = false, RRGGBBAA = true })
-    end },
-    { "folke/which-key.nvim", config = function()
-        require("which-key").setup()
-    end },
-    { "phaazon/hop.nvim", config = function()
-        require("hop").setup()
-    end },
     { "fwrs/gitsigns-nvim", config = function()
         require("gitsigns").setup()
-    end },
-    { "folke/zen-mode.nvim", opts = {
-        window = { backdrop = 1, width = 0.8 },
-        plugins = { options = { laststatus = 3 } }
-    } },
-    { "RRethy/vim-illuminate", config = function()
-        require("illuminate").configure { min_count_to_highlight = 2 }
     end }
 }
