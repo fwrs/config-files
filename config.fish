@@ -26,10 +26,6 @@ set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
 set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home"
 set -gx DOCKER_HOST "unix://$HOME/.colima/docker.sock"
 
-if test -n "$MANPATH[1]"
-    set -gx MANPATH "" $MANPATH
-end
-
 if not contains "/opt/homebrew/share/info" $INFOPATH
     set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH
 end
