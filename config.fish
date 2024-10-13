@@ -18,11 +18,21 @@ else
     echo -n -e "\e]0;~\a"
 end
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-set -gx JAVA_HOME "$(/usr/libexec/java_home)"
+fish_add_path /opt/homebrew/bin /opt/homebrew/sbin ~/Library/Python/3.9/bin ~/.cargo/bin
+
+set -gx HOMEBREW_PREFIX "/opt/homebrew"
+set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
+set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
+set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home"
 set -gx DOCKER_HOST "unix://$HOME/.colima/docker.sock"
-fish_add_path ~/Library/Python/3.9/bin
-fish_add_path ~/.cargo/bin
+
+if test -n "$MANPATH[1]"
+    set -gx MANPATH "" $MANPATH
+end
+
+if not contains "/opt/homebrew/share/info" $INFOPATH
+    set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH
+end
 
 set fish_greeting
 set -gx MANPAGER "nvim +Man!"
