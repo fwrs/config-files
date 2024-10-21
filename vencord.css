@@ -10,6 +10,6 @@ div[class^=channelAppLauncher] {
     display: none;
 }
 
-div[class^=channelTextArea] div[class^=buttons] > :is(button, div[class^=expression-picker]:not(:has(button[class*=emojiButton]))) {
+div[class^=channelTextArea] div[class^=buttons] > :is(div, button):not(:has(button[class*=emojiButton])):not(div[class*=separator]) {
     display: none;
 }
