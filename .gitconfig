@@ -32,6 +32,10 @@
     autoSetupRebase = always
 [diff]
     noprefix = true
+[difftool "kitty"]
+    prompt = false
+    trustExitCode = true
+    cmd = kitten diff $LOCAL $REMOTE
 [log]
     abbrevCommit = true
 [status]
@@ -44,3 +48,5 @@
     prompt = false
 [mergetool "nvim"]
     cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
+[alias]
+    kd = "!git --no-pager difftool --tool=kitty --no-symlinks --dir-diff $@ && printf \"\\033c\" #"
