@@ -18,7 +18,7 @@ else
     echo -n -e "\e]0;~\a"
 end
 
-fish_add_path /opt/homebrew/bin /opt/homebrew/sbin ~/Library/Python/3.9/bin ~/.cargo/bin
+fish_add_path /opt/homebrew/bin /opt/homebrew/sbin ~/Library/Python/3.9/bin ~/.cargo/bin ~/.local/bin
 
 set -gx HOMEBREW_PREFIX "/opt/homebrew"
 set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
