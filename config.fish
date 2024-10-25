@@ -53,7 +53,7 @@ abbr -a gcleanstale "git branch -vv | grep \": gone]\" | awk \"{print \\\$1}\" |
 abbr -a xc "open \"\$(fd -I -d 1 -e xcworkspace | head -n 1)\""
 abbr -a idea "env -i HOME=\"\$HOME\" zsh -l -c \"open -a \\\"IntelliJ IDEA CE\\\" .\""
 abbr -a studio "env -i HOME=\"\$HOME\" zsh -l -c \"open -a \\\"Android Studio\\\" .\""
-abbr -a nsh "env -i HOME=\"\$HOME\" bash"
+abbr -a nsh "env -i HOME=\"\$HOME\" zsh"
 
 function gss -a branch
     git stash && git switch $branch && git stash pop
