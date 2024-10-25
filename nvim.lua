@@ -77,7 +77,7 @@ vim.cmd.autocmd("BufWritePre * %s/\\S\\@<=\\s\\+$//e")
 vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(\"redrawstatus! | normal zR\") end, 200)")
 
 -- cmds
-vim.cmd.command("Gl G ++curwin log --graph --all --oneline --decorate --pretty=format:\"%h -%d %s (%cr) <%an>\"")
+vim.cmd.command("-bar Gl G ++curwin log --graph --all --oneline --decorate --pretty=format:\"%h -%d %s (%cr) <%an>\"")
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
