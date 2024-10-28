@@ -203,6 +203,7 @@ require("lazy").setup {
         lspconfig["eslint"].setup(default_config)
         lspconfig["sourcekit"].setup(default_config)
         lspconfig["rust_analyzer"].setup(default_config)
+        lspconfig["bashls"].setup(default_config)
     end },
     { "lukas-reineke/indent-blankline.nvim", config = function()
         require("ibl").setup { scope = { show_start = false, show_end = false } }
