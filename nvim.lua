@@ -78,7 +78,7 @@ vim.cmd.autocmd("BufReadPost,FileReadPost * lua vim.defer_fn(function() vim.cmd(
 vim.cmd.autocmd("User FugitiveIndex,FugitiveObject nmap <buffer> <silent> g; :<c-u>Git pull origin <c-r>=substitute(expand(\"<cWORD>\"), \"^origin/\", \"\", \"\")<cr><cr>")
 
 -- cmds
-vim.cmd.command("-bar Gl G ++curwin log --graph --all --oneline --decorate --pretty=format:\"%h -%d %s (%cr) <%an>\"")
+vim.cmd.command("-bar Gl G ++curwin log --graph --oneline --decorate --pretty=format:\"%h -%d %s (%cr) <%an>\"")
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
