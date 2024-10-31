@@ -32,8 +32,8 @@ set showbreak="   "
 set shell="/opt/homebrew/bin/fish"
 let g:mapleader=" "
 
+nnoremap x "_x
 nmap <leader>n :nohl<cr>
-nmap x "_x
 nmap <leader>l :set list!<cr>
 nmap <leader>+ <c-a>
 nmap <leader>- <c-x>
