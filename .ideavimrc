@@ -1,6 +1,6 @@
 set hls
 set ideajoin
-set selectmode="mouse,key,ideaselection"
+set selectmode=mouse,key,ideaselection
 set relativenumber
 set number
 set tabstop=4
@@ -12,25 +12,24 @@ set ignorecase
 set smartcase
 set cursorline
 set termguicolors
-set background="light"
-set signcolumn="yes"
-set backspace="indent,eol,start"
-set clipboard^=unnamedplus
-set clipboard^=ideaput
+set background=light
+set signcolumn=yes
+set backspace=indent,eol,start
+set clipboard^=unnamedplus,ideaput
 set splitright
 set splitbelow
-set iskeyword+="-"
-set shortmess+="I"
-set completeopt="menu,menuone,noselect"
-set nolis
-set listchars="eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣"
-set fillchars="eob: "
+set iskeyword+=-
+set shortmess+=I
+set completeopt=menu,menuone,noselect
+set nolist
 set wrap
 set breakindent
 set linebreak
-set showbreak="   "
-set shell="/opt/homebrew/bin/fish"
-let g:mapleader=" "
+set shell=/opt/homebrew/bin/fish
+let &listchars='eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣'
+let &fillchars='eob: '
+let &showbreak='   '
+let g:mapleader=' '
 
 nnoremap x "_x
 nmap <leader>n :nohl<cr>
@@ -45,7 +44,6 @@ nmap <leader>to :tabnew<cr>
 nmap <leader>tx :tabclose<cr>
 nmap <leader>tn :tabn<cr>
 nmap <leader>tp :tabp<cr>
-nmap <leader>cp :let @+=expand("%:p")<cr>
 omap i/ :<c-u>normal! T/vt/<cr>
 vmap i/ :<c-u>normal! T/vt/<cr>
 
