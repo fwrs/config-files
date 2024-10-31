@@ -50,5 +50,5 @@ omap i/ :<c-u>normal! T/vt/<cr>
 vmap i/ :<c-u>normal! T/vt/<cr>
 
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
