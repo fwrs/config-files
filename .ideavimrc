@@ -1,0 +1,54 @@
+set hls
+set ideajoin
+set selectmode="mouse,key,ideaselection"
+set relativenumber
+set number
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set nowrap
+set ignorecase
+set smartcase
+set cursorline
+set termguicolors
+set background="light"
+set signcolumn="yes"
+set backspace="indent,eol,start"
+set clipboard^=unnamedplus
+set clipboard^=ideaput
+set splitright
+set splitbelow
+set iskeyword+="-"
+set shortmess+="I"
+set completeopt="menu,menuone,noselect"
+set nolis
+set listchars="eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣"
+set fillchars="eob: "
+set wrap
+set breakindent
+set linebreak
+set showbreak="   "
+set shell="/opt/homebrew/bin/fish"
+let g:mapleader=" "
+
+nmap <leader>n :nohl<cr>
+nmap x "_x
+nmap <leader>l :set list!<cr>
+nmap <leader>+ <c-a>
+nmap <leader>- <c-x>
+nmap <leader>sv <c-w>v
+nmap <leader>sh <c-w>s
+nmap <leader>se <c-w>=
+nmap <leader>sx :close<cr>
+nmap <leader>to :tabnew<cr>
+nmap <leader>tx :tabclose<cr>
+nmap <leader>tn :tabn<cr>
+nmap <leader>tp :tabp<cr>
+nmap <leader>cp :let @+=expand("%:p")<cr>
+omap i/ :<c-u>normal! T/vt/<cr>
+vmap i/ :<c-u>normal! T/vt/<cr>
+
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'tpope/vim-commentary'
