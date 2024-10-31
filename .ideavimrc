@@ -44,8 +44,8 @@ nmap <leader>to :tabnew<cr>
 nmap <leader>tx :tabclose<cr>
 nmap <leader>tn :tabn<cr>
 nmap <leader>tp :tabp<cr>
-omap i/ :<c-u>normal! T/vt/<cr>
-vmap i/ :<c-u>normal! T/vt/<cr>
+map i/ :<c-u>normal! T/vt/<cr>
+map a/ :<c-u>normal! F/vf/<cr>
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
