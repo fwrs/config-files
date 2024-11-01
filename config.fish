@@ -23,7 +23,7 @@ fish_add_path /opt/homebrew/bin /opt/homebrew/sbin ~/Library/Python/3.9/bin ~/.c
 set -gx HOMEBREW_PREFIX "/opt/homebrew"
 set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
 set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
-set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home"
+set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/zulu-23.jdk/Contents/Home"
 set -gx DOCKER_HOST "unix://$HOME/.colima/docker.sock"
 
 if not contains "/opt/homebrew/share/info" $INFOPATH
