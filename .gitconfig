@@ -38,6 +38,7 @@
     cmd = kitten diff $LOCAL $REMOTE
 [log]
     abbrevCommit = true
+    date = local
 [status]
     showUntrackedFiles = all
 [merge]
