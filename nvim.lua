@@ -38,6 +38,9 @@ vim.g.mapleader = " "
 vim.g.rooter_silent_chdir = 1
 vim.g.loaded_netrwPlugin = 0
 vim.g.flog_enable_extended_chars = 1
+vim.g.flog_enable_dynamic_branch_hl = 1
+vim.g.flog_enable_dynamic_commit_hl = 1
+vim.g.flog_permanent_default_opts = { date = "relative-local" }
 vim.filetype.add { extension = { metal = "cpp" } }
 
 -- keymaps
