@@ -37,6 +37,7 @@ vim.g.editorconfig = false
 vim.g.mapleader = " "
 vim.g.rooter_silent_chdir = 1
 vim.g.loaded_netrwPlugin = 0
+vim.g.flog_enable_extended_chars = 1
 vim.filetype.add { extension = { metal = "cpp" } }
 
 -- keymaps
@@ -114,6 +115,7 @@ require("lazy").setup {
     { "vim-scripts/ReplaceWithRegister" },
     { "tpope/vim-surround" },
     { "tpope/vim-fugitive" },
+    { "rbong/vim-flog" },
     { "numToStr/Comment.nvim", config = function()
         require("Comment").setup()
     end },
