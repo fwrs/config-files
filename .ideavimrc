@@ -50,3 +50,4 @@ map a/ :<c-u>normal! F/vf/<cr>
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'inkarkat/vim-ReplaceWithSameIndentRegister'
