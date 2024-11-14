@@ -116,6 +116,7 @@ require("lazy").setup {
     end },
     { "powerman/vim-plugin-AnsiEsc" },
     { "vim-scripts/ReplaceWithRegister" },
+    { "inkarkat/vim-ReplaceWithSameIndentRegister" },
     { "tpope/vim-surround" },
     { "tpope/vim-fugitive" },
     { "rbong/vim-flog" },
