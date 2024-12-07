@@ -111,6 +111,7 @@ require("lazy").setup {
         vim.cmd("highlight MatchParen guibg=#d5dbde")
         vim.cmd("highlight! link CursorLineNr CursorLine")
         vim.cmd("highlight! link CursorLineSign CursorLine")
+        vim.cmd("highlight! link TreesitterContextLineNumber TreesitterContext")
         local fg = require("onedark.palette")[vim.g.onedark_config.style].fg
         vim.cmd("highlight! MiniStatuslineFilename guifg=" .. fg)
     end },
@@ -127,13 +128,40 @@ require("lazy").setup {
         require("nvim-autopairs").setup { check_ts = true }
     end },
     { "windwp/nvim-ts-autotag" },
+    { "nvim-treesitter/nvim-treesitter-textobjects" },
     { "nvim-treesitter/nvim-treesitter", config = function()
         require("nvim-treesitter.configs").setup {
             highlight = { enable = true, disable = { "swift" } },
             indent = { enable = true },
             autotag = { enable = true },
+            incremental_selection = {
+                enable = true,
+                keymaps = { init_selection = "\\", node_incremental = "\\", node_decremental = "<bs>" }
+            },
+            textobjects = {
+                select = {
+                    enable = true,
+                    lookahead = true,
+                    keymaps = {
+                        ["aa"] = "@parameter.outer",
+                        ["ia"] = "@parameter.inner",
+                        ["a="] = "@assignment.outer",
+                        ["i="] = "@assignment.inner"
+                    }
+                },
+                move = {
+                    enable = true,
+                    goto_next_start     = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
+                    goto_next_end       = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
+                    goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
+                    goto_previous_end   = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" }
+                }
+            },
             auto_install = true
         }
+    end },
+    { "nvim-treesitter/nvim-treesitter-context", config = function()
+        require("treesitter-context").setup { mode = "topline" }
     end },
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "nvim-telescope/telescope.nvim", config = function()
