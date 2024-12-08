@@ -143,18 +143,26 @@ require("lazy").setup {
                     enable = true,
                     lookahead = true,
                     keymaps = {
+                        ["ab"] = "@block.outer",
+                        ["ib"] = "@block.inner",
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ac"] = "@class.outer",
+                        ["ic"] = "@class.inner",
                         ["aa"] = "@parameter.outer",
                         ["ia"] = "@parameter.inner",
                         ["a="] = "@assignment.outer",
-                        ["i="] = "@assignment.inner"
+                        ["i="] = "@assignment.inner",
+                        ["a\\"] = "@comment.outer",
+                        ["i\\"] = "@comment.inner"
                     }
                 },
                 move = {
                     enable = true,
-                    goto_next_start     = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
-                    goto_next_end       = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
-                    goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
-                    goto_previous_end   = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" }
+                    goto_next_start     = { ["]b"] = "@block.outer", ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
+                    goto_next_end       = { ["]B"] = "@block.outer", ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
+                    goto_previous_start = { ["[b"] = "@block.outer", ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
+                    goto_previous_end   = { ["[B"] = "@block.outer", ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" }
                 }
             },
             auto_install = true
