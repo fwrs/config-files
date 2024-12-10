@@ -1,6 +1,5 @@
 set hls
 set ideajoin
-set selectmode=mouse,key,ideaselection
 set relativenumber
 set number
 set tabstop=4
