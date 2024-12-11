@@ -45,6 +45,10 @@ nmap <leader>tn :tabn<cr>
 nmap <leader>tp :tabp<cr>
 map i/ :<c-u>normal! T/vt/<cr>
 map a/ :<c-u>normal! F/vf/<cr>
+map ,w [w
+map ,e ]w
+map ,b [b
+map ci,w [bv]ws
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
