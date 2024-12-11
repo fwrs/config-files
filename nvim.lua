@@ -41,6 +41,7 @@ vim.g.flog_enable_extended_chars = 1
 vim.g.flog_enable_dynamic_branch_hl = 1
 vim.g.flog_enable_dynamic_commit_hl = 1
 vim.g.flog_permanent_default_opts = { date = "relative-local" }
+vim.g.camelcasemotion_key = ","
 vim.filetype.add { extension = { metal = "cpp" } }
 
 -- keymaps
@@ -120,6 +121,7 @@ require("lazy").setup {
     { "inkarkat/vim-ReplaceWithSameIndentRegister" },
     { "tpope/vim-surround" },
     { "tpope/vim-fugitive" },
+    { "bkad/CamelCaseMotion" },
     { "rbong/vim-flog" },
     { "numToStr/Comment.nvim", config = function()
         require("Comment").setup()
