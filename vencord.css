@@ -13,3 +13,7 @@ div[class^=channelAppLauncher] {
 div[class^=channelTextArea] div[class^=buttons] > :is(div, button):not(:has(button[class*=emojiButton])):not(div[class*=separator]) {
     display: none;
 }
+
+div[class^=entryPointButtonContainer]:has(button[class^=entryPointAppCommandButton]) {
+    display: none;
+}
