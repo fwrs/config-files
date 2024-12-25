@@ -31,6 +31,10 @@ let &showbreak='   '
 let g:mapleader=' '
 
 nnoremap x "_x
+onoremap i/ :<c-u>normal! T/vt/<cr>
+onoremap a/ :<c-u>normal! F/vf/<cr>
+vnoremap i/ :<c-u>normal! T/vt/<cr>
+vnoremap a/ :<c-u>normal! F/vf/<cr>
 nmap <leader>n :nohl<cr>
 nmap <leader>l :set list!<cr>
 nmap <leader>+ <c-a>
@@ -43,8 +47,6 @@ nmap <leader>to :tabnew<cr>
 nmap <leader>tx :tabclose<cr>
 nmap <leader>tn :tabn<cr>
 nmap <leader>tp :tabp<cr>
-map i/ :<c-u>normal! T/vt/<cr>
-map a/ :<c-u>normal! F/vf/<cr>
 map ,w [w
 map ,e ]w
 map ,b [b
