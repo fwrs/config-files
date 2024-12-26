@@ -37,6 +37,13 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx GPG_TTY (tty)
 
+fish_vi_key_bindings
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_visual block
+function fish_mode_prompt; end
+
 if set -q fish_startup_command
     eval $fish_startup_command
     set -e fish_startup_command
