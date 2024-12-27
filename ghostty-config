@@ -1,3 +1,5 @@
+auto-update-channel = stable
+
 command = /opt/homebrew/bin/fish
 shell-integration = fish
 
