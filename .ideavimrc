@@ -29,6 +29,7 @@ set easymotion
 let &listchars='eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣'
 let &fillchars='eob: '
 let &showbreak='   '
+let g:EasyMotion_do_mapping=0
 let g:mapleader=' '
 
 nnoremap x "_x
