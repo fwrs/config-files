@@ -25,6 +25,7 @@ set wrap
 set breakindent
 set linebreak
 set shell=/opt/homebrew/bin/fish
+set easymotion
 let &listchars='eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣'
 let &fillchars='eob: '
 let &showbreak='   '
@@ -47,6 +48,9 @@ nmap <leader>to :tabnew<cr>
 nmap <leader>tx :tabclose<cr>
 nmap <leader>tn :tabn<cr>
 nmap <leader>tp :tabp<cr>
+map <leader>ha <Plug>(easymotion-jumptoanywhere)
+map <leader>hw <Plug>(easymotion-bd-w)
+map <leader>hs <Plug>(easymotion-bd-f)
 map ,w [w
 map ,e ]w
 map ,b [b
