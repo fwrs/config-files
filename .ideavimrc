@@ -37,6 +37,8 @@ onoremap i/ :<c-u>normal! T/vt/<cr>
 onoremap a/ :<c-u>normal! F/vf/<cr>
 vnoremap i/ :<c-u>normal! T/vt/<cr>
 vnoremap a/ :<c-u>normal! F/vf/<cr>
+onoremap i,w :<c-u>normal! [bv]w/<cr>
+vnoremap i,w :<c-u>normal! [bv]w<cr>
 nmap <leader>n :nohl<cr>
 nmap <leader>l :set list!<cr>
 nmap <leader>+ <c-a>
@@ -49,10 +51,6 @@ nmap <leader>to :tabnew<cr>
 nmap <leader>tx :tabclose<cr>
 nmap <leader>tn :tabn<cr>
 nmap <leader>tp :tabp<cr>
-nmap ci,w [bv]ws
-nmap gri,w [bv]wgr
-omap i,w [bo]w
-vmap i,w [bo]w
 map <leader>ha <Plug>(easymotion-jumptoanywhere)
 map <leader>hw <Plug>(easymotion-bd-w)
 map <leader>hs <Plug>(easymotion-bd-f)
