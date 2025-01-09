@@ -50,6 +50,9 @@ nmap <leader>tx :tabclose<cr>
 nmap <leader>tn :tabn<cr>
 nmap <leader>tp :tabp<cr>
 nmap ci,w [bv]ws
+nmap gri,w [bv]wgr
+omap i,w [bo]w
+vmap i,w [bo]w
 map <leader>ha <Plug>(easymotion-jumptoanywhere)
 map <leader>hw <Plug>(easymotion-bd-w)
 map <leader>hs <Plug>(easymotion-bd-f)
