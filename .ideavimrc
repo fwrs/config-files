@@ -37,7 +37,7 @@ onoremap i/ :<c-u>normal! T/vt/<cr>
 onoremap a/ :<c-u>normal! F/vf/<cr>
 vnoremap i/ :<c-u>normal! T/vt/<cr>
 vnoremap a/ :<c-u>normal! F/vf/<cr>
-onoremap i,w :<c-u>normal! [bv]w/<cr>
+onoremap i,w :<c-u>normal! [bv]w<cr>
 vnoremap i,w :<c-u>normal! [bv]w<cr>
 nmap <leader>n :nohl<cr>
 nmap <leader>l :set list!<cr>
