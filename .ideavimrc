@@ -33,12 +33,6 @@ let g:EasyMotion_do_mapping=0
 let g:mapleader=' '
 
 nnoremap x "_x
-onoremap i/ :<c-u>normal! T/vt/<cr>
-onoremap a/ :<c-u>normal! F/vf/<cr>
-vnoremap i/ :<c-u>normal! T/vt/<cr>
-vnoremap a/ :<c-u>normal! F/vf/<cr>
-onoremap i,w :<c-u>normal! [bv]w<cr>
-vnoremap i,w :<c-u>normal! [bv]w<cr>
 nmap <leader>n :nohl<cr>
 nmap <leader>l :set list!<cr>
 nmap <leader>+ <c-a>
@@ -57,6 +51,34 @@ map <leader>hs <Plug>(easymotion-bd-f)
 map ,w [w
 map ,e ]w
 map ,b [b
+
+nmap ci,w [bv]ws
+nmap di,w [bv]wd
+nmap yi,w [bv]wy
+nmap vi,w [bv]w
+vmap vi,w [bv]w
+omap vi,w [bv]w
+nmap gri,w [bv]wgr
+nmap gUi,w [bv]wgU
+nmap gui,w [bv]wgu
+nmap ci/ T/vt/s
+nmap di/ T/vt/d
+nmap yi/ T/vt/y
+nmap vi/ T/vt/
+vmap vi/ T/vt/
+omap vi/ T/vt/
+nmap gri/ T/vt/gr
+nmap gUi/ T/vt/gU
+nmap gui/ T/vt/gu
+nmap ca/ F/vf/s
+nmap da/ F/vf/d
+nmap ya/ F/vf/y
+nmap va/ F/vf/
+vmap va/ F/vf/
+omap va/ F/vf/
+nmap gra/ F/vf/gr
+nmap gUa/ F/vf/gU
+nmap gua/ F/vf/gu
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
