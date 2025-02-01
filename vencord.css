@@ -10,7 +10,7 @@ div[class^=channelAppLauncher] {
     display: none;
 }
 
-div[class^=channelTextArea] div[class^=buttons] > :is(div, button):not(:has(button[class*=emojiButton])):not(div[class*=separator]) {
+div[class^=channelTextArea] div[class^=buttons] > :is(div, button):not(:has(button[class*=emojiButton])):not(div[class*=separator]):not(div[class*=separator] + div) {
     display: none;
 }
 
