@@ -14,8 +14,8 @@ adjust-underline-thickness = -1
 adjust-cell-width = -10%
 adjust-underline-position = 1
 
-window-height = 24
-window-width = 84
+window-height = 25
+window-width = 86
 window-step-resize = true
 window-inherit-working-directory = false
 quit-after-last-window-closed = true
