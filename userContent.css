@@ -2,4 +2,8 @@
     .devtools-monospace {
         font-family: "Input" !important;
     }
+
+    #devtools-webconsole {
+        --monospace-font-family: "Input" !important;
+    }
 }
