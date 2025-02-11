@@ -1,5 +1,5 @@
 @-moz-document url-prefix(chrome://devtools/content) {
     .devtools-monospace {
-        font-family: "PragmataPro Mono Liga" !important;
+        font-family: "Input" !important;
     }
 }
