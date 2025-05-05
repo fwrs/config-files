@@ -1,4 +1,4 @@
-* {
+    * {
     --font-code: "Input", "SF Mono", monospace !important;
 }
 
@@ -23,5 +23,9 @@ div[class^=channelTextArea] div[class^=buttons] > :is(div, button):not(:has(butt
 }
 
 div[class^=entryPointButtonContainer]:has(button[class^=entryPointAppCommandButton]) {
+    display: none;
+}
+
+div[class^=member] > div[class^=childContainer] > div[class^=container]:has(video[src*=nameplates]) {
     display: none;
 }
