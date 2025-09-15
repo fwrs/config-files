@@ -3,7 +3,7 @@ auto-update-channel = stable
 command = /opt/homebrew/bin/fish
 shell-integration = fish
 
-theme = AtomOneLight
+theme = Atom One Light
 background = #ffffff
 window-colorspace = srgb
 
