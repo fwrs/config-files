@@ -215,7 +215,6 @@ require("lazy").setup {
         }
     end },
     { "neovim/nvim-lspconfig", config = function()
-        local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local on_attach = function(client, buffer)
             local opts = { noremap = true, silent = true, buffer = buffer }
@@ -246,11 +245,12 @@ require("lazy").setup {
             on_attach = on_attach,
             single_file_support = true
         }
-        lspconfig["ts_ls"].setup(default_config)
-        lspconfig["eslint"].setup(default_config)
-        lspconfig["sourcekit"].setup(default_config)
-        lspconfig["rust_analyzer"].setup(default_config)
-        lspconfig["bashls"].setup(default_config)
+        vim.lsp.config("ts_ls", default_config)
+        vim.lsp.config("eslint", default_config)
+        vim.lsp.config("sourcekit", default_config)
+        vim.lsp.config("rust_analyzer", default_config)
+        vim.lsp.config("bashls", default_config)
+        vim.lsp.enable({ "ts_ls", "eslint", "sourcekit", "rust_analyzer", "bashls" })
     end },
     { "lukas-reineke/indent-blankline.nvim", config = function()
         require("ibl").setup { scope = { show_start = false, show_end = false } }
