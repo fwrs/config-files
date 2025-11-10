@@ -78,7 +78,7 @@ vim.keymap.set({ "x", "o" }, "i/", ":<c-u>normal! T/vt/<cr>", { silent = true })
 vim.keymap.set({ "x", "o" }, "a/", ":<c-u>normal! F/vf/<cr>", { silent = true })
 
 -- nvim 0.10 broke replacewithregister, very cool
-for _, mode in ipairs { "n", "x", "o" } do
+for _, mode in ipairs { "n", "v" } do
     for _, lhs in ipairs { "gra", "gri", "grn", "grr", "grt" } do
         pcall(vim.keymap.del, mode, lhs)
     end
