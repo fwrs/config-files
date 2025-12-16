@@ -2,30 +2,34 @@
     --font-code: "Input", "SF Mono", monospace !important;
 }
 
-div[class^=message] code {
+div[class*=message] code {
     font-size: 13px !important;
 }
 
-div[class^=markup][role=textbox][class*=editor] span[class*=inlineCode] {
+div[class*=markup][role=textbox][class*=editor] span[class*=inlineCode] {
     font-size: 13px !important;
 }
 
-li[class^=channel]:has(a[href="/shop"]) {
+li[class*=channel]:has(a[href="/shop"]) {
     display: none !important;
 }
 
-div[class^=channelAppLauncher] {
+li[class*=channel]:has(a[href="/quest-home"]) {
+    display: none !important;
+}
+
+div[class*=channelAppLauncher] {
     display: none;
 }
 
-div[class^=channelTextArea] div[class^=buttons] > :is(div, button):not(:has(div[class*=emojiButton])):not(div[class*=separator]):not(div[class*=separator] + div) {
+div[class*=channelTextArea] div[class*=buttons] > :is(div, button):not(:has(div[class*=emojiButton])):not(div[class*=separator]):not(div[class*=separator] + div) {
     display: none;
 }
 
-div[class^=entryPointButtonContainer]:has(button[class^=entryPointAppCommandButton]) {
+div[class*=entryPointButtonContainer]:has(button[class*=entryPointAppCommandButton]) {
     display: none;
 }
 
-div[class^=member] > div[class^=childContainer] > div[class^=container]:has(video[src*=nameplates]) {
+div[class*=member] > div[class*=childContainer] > div[class*=container]:has(video[src*=nameplates]) {
     display: none;
 }
