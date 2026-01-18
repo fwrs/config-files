@@ -269,3 +269,6 @@ require("lazy").setup {
         require("hop").setup()
     end }
 }
+
+-- temporary suppression
+vim.deprecate = function() end
