@@ -30,6 +30,6 @@ div[class*=entryPointButtonContainer]:has(button[class*=entryPointAppCommandButt
     display: none;
 }
 
-div[class*=member] > div[class*=childContainer] > div[class*=container]:has(video[src*=nameplates]) {
+div[class*=member] > div[class*=childContainer] > div[class*=container]:has(video[src*=collectibles]) {
     display: none;
 }
