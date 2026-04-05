@@ -260,8 +260,6 @@ require("lazy").setup {
         require("hop").setup()
     end },
     { "folke/which-key.nvim", config = function()
-        require("which-key").setup {
-            preset = "helix",
-        }
+        require("which-key").setup { preset = "helix", icons = { mappings = false } }
     end },
 }
