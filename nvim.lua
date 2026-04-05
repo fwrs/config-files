@@ -242,11 +242,6 @@ require("lazy").setup {
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, opts)
         end
-        local signs = { Error = "💢", Warn = "⚠️", Hint = "💬", Info = "ℹ️" }
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl })
-        end
         local default_config = {
             capabilities = cmp_nvim_lsp.default_capabilities(),
             on_attach = on_attach,
@@ -269,6 +264,3 @@ require("lazy").setup {
         require("hop").setup()
     end }
 }
-
--- temporary suppression
-vim.deprecate = function() end
