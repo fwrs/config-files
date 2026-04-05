@@ -247,11 +247,7 @@ require("lazy").setup {
             on_attach = on_attach,
             single_file_support = true
         }
-        vim.lsp.config("ts_ls", default_config)
-        vim.lsp.config("eslint", default_config)
-        vim.lsp.config("sourcekit", default_config)
-        vim.lsp.config("rust_analyzer", default_config)
-        vim.lsp.config("bashls", default_config)
+        vim.lsp.config("*", default_config)
         vim.lsp.enable({ "ts_ls", "eslint", "sourcekit", "rust_analyzer", "bashls" })
     end },
     { "lukas-reineke/indent-blankline.nvim", config = function()
