@@ -1,4 +1,5 @@
 -- settings
+require('vim._core.ui2').enable {}
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.tabstop = 4
