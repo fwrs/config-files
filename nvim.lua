@@ -13,7 +13,6 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.background = "light"
 vim.opt.signcolumn = "yes"
-vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -259,5 +258,10 @@ require("lazy").setup {
     end },
     { "smoka7/hop.nvim", config = function()
         require("hop").setup()
-    end }
+    end },
+    { "folke/which-key.nvim", config = function()
+        require("which-key").setup {
+            preset = "helix",
+        }
+    end },
 }
