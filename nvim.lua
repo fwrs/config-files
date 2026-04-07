@@ -109,22 +109,26 @@ vim.opt.rtp:prepend(lazypath)
 -- plugins
 require("lazy").setup {
     { "nvim-lua/plenary.nvim" },
-    { "nmac427/guess-indent.nvim", config = function()
-        require("guess-indent").setup()
-    end },
+    {
+        "nmac427/guess-indent.nvim",
+        config = function() require("guess-indent").setup() end,
+    },
     { "airblade/vim-rooter" },
-    { "navarasu/onedark.nvim", config = function()
-        local o = require("onedark")
-        o.setup { style = "light", transparent = true }
-        o.load()
-        vim.cmd("highlight CursorLine guibg=#f6f6f6")
-        vim.cmd("highlight MatchParen guibg=#d5dbde")
-        vim.cmd("highlight! link CursorLineNr CursorLine")
-        vim.cmd("highlight! link CursorLineSign CursorLine")
-        vim.cmd("highlight! link TreesitterContextLineNumber TreesitterContext")
-        local fg = require("onedark.palette")[vim.g.onedark_config.style].fg
-        vim.cmd("highlight! MiniStatuslineFilename guifg=" .. fg)
-    end },
+    {
+        "navarasu/onedark.nvim",
+        config = function()
+            local o = require("onedark")
+            o.setup { style = "light", transparent = true }
+            o.load()
+            vim.cmd("highlight CursorLine guibg=#f6f6f6")
+            vim.cmd("highlight MatchParen guibg=#d5dbde")
+            vim.cmd("highlight! link CursorLineNr CursorLine")
+            vim.cmd("highlight! link CursorLineSign CursorLine")
+            vim.cmd("highlight! link TreesitterContextLineNumber TreesitterContext")
+            local fg = require("onedark.palette")[vim.g.onedark_config.style].fg
+            vim.cmd("highlight! MiniStatuslineFilename guifg=" .. fg)
+        end,
+    },
     { "powerman/vim-plugin-AnsiEsc" },
     { "vim-scripts/ReplaceWithRegister" },
     { "inkarkat/vim-ReplaceWithSameIndentRegister" },
@@ -132,134 +136,159 @@ require("lazy").setup {
     { "tpope/vim-fugitive" },
     { "bkad/CamelCaseMotion" },
     { "rbong/vim-flog" },
-    { "numToStr/Comment.nvim", config = function()
-        require("Comment").setup()
-    end },
-    { "windwp/nvim-autopairs", config = function()
-        require("nvim-autopairs").setup { check_ts = true }
-    end },
+    {
+        "numToStr/Comment.nvim",
+        config = function() require("Comment").setup() end,
+    },
     { "windwp/nvim-ts-autotag" },
     { "nvim-treesitter/nvim-treesitter-textobjects" },
-    { "nvim-treesitter/nvim-treesitter", config = function()
-        require("nvim-treesitter.configs").setup {
-            highlight = { enable = true, disable = { "swift" } },
-            indent = { enable = true },
-            autotag = { enable = true },
-            incremental_selection = {
-                enable = true,
-                keymaps = { init_selection = "\\", node_incremental = "\\", node_decremental = "<bs>" }
-            },
-            textobjects = {
-                select = {
+    {
+        "nvim-treesitter/nvim-treesitter",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("nvim-treesitter.configs").setup {
+                highlight = { enable = true, disable = { "swift" } },
+                indent = { enable = true },
+                autotag = { enable = true },
+                incremental_selection = {
                     enable = true,
-                    lookahead = true,
-                    keymaps = {
-                        ["ab"] = "@block.outer",
-                        ["ib"] = "@block.inner",
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = "@class.inner",
-                        ["aa"] = "@parameter.outer",
-                        ["ia"] = "@parameter.inner",
-                        ["a="] = "@assignment.outer",
-                        ["i="] = "@assignment.inner",
-                        ["a\\"] = "@comment.outer",
-                        ["i\\"] = "@comment.inner"
-                    }
+                    keymaps = { init_selection = "\\", node_incremental = "\\", node_decremental = "<bs>" },
                 },
-                move = {
-                    enable = true,
-                    goto_next_start     = { ["]b"] = "@block.outer", ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
-                    goto_next_end       = { ["]B"] = "@block.outer", ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
-                    goto_previous_start = { ["[b"] = "@block.outer", ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
-                    goto_previous_end   = { ["[B"] = "@block.outer", ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" }
-                }
-            },
-            auto_install = true
-        }
-    end },
-    { "nvim-treesitter/nvim-treesitter-context", config = function()
-        require("treesitter-context").setup { mode = "topline" }
-    end },
-    { "nvim-telescope/telescope-file-browser.nvim" },
-    { "nvim-telescope/telescope.nvim", config = function()
-        require("telescope").setup {
-            defaults = { mappings = { i = { ["<M-a>"] = "select_all", ["<M-t>"] = "toggle_all" } } },
-            extensions = { file_browser = { hijack_netrw = true } }
-        }
-        require("telescope").load_extension("file_browser")
-    end },
-    { "echasnovski/mini.statusline", config = function()
-        require("mini.statusline").setup()
-    end },
-    { "L3MON4D3/LuaSnip" },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/nvim-cmp", config = function()
-        local cmp = require("cmp")
-        local luasnip = require("luasnip")
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        cmp.setup {
-            snippet = { expand = function(args)
-                luasnip.lsp_expand(args.body)
-            end },
-            mapping = cmp.mapping.preset.insert {
-                ["<c-k>"] = cmp.mapping.select_prev_item(),
-                ["<c-j>"] = cmp.mapping.select_next_item(),
-                ["<c-b>"] = cmp.mapping.scroll_docs(-4),
-                ["<c-f>"] = cmp.mapping.scroll_docs(4),
-                ["<c-space>"] = cmp.mapping.complete(),
-                ["<c-e>"] = cmp.mapping.abort(),
-                ["<cr>"] = cmp.mapping.confirm { select = false }
-            },
-            sources = cmp.config.sources {
-                { name = "nvim_lsp" },
-                { name = "buffer" },
-                { name = "path" }
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ["ab"] = "@block.outer",
+                            ["ib"] = "@block.inner",
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["ac"] = "@class.outer",
+                            ["ic"] = "@class.inner",
+                            ["aa"] = "@parameter.outer",
+                            ["ia"] = "@parameter.inner",
+                            ["a="] = "@assignment.outer",
+                            ["i="] = "@assignment.inner",
+                            ["a\\"] = "@comment.outer",
+                            ["i\\"] = "@comment.inner",
+                        },
+                    },
+                    move = {
+                        enable = true,
+                        goto_next_start     = { ["]b"] = "@block.outer", ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
+                        goto_next_end       = { ["]B"] = "@block.outer", ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
+                        goto_previous_start = { ["[b"] = "@block.outer", ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
+                        goto_previous_end   = { ["[B"] = "@block.outer", ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
+                    },
+                },
+                auto_install = true,
             }
-        }
-    end },
-    { "neovim/nvim-lspconfig", config = function()
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        local on_attach = function(client, buffer)
-            local opts = { noremap = true, silent = true, buffer = buffer }
-            vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts)
-            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-            vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
-            vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
-            vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
-            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-            vim.keymap.set({ "n", "v" }, "<leader>fmt", vim.lsp.buf.format, opts)
-            vim.keymap.set({ "n", "v" }, "<leader>rn", vim.lsp.buf.rename, opts)
-            vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=" .. buffer .. "<cr>", opts)
-            vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-            vim.keymap.set({ "n", "v" }, "K", vim.lsp.buf.hover, opts)
-            vim.keymap.set({ "n", "v" }, "<leader>hnt", function()
-                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-            end, opts)
-        end
-        local default_config = {
-            capabilities = cmp_nvim_lsp.default_capabilities(),
-            on_attach = on_attach,
-            single_file_support = true
-        }
-        vim.lsp.config("*", default_config)
-        vim.lsp.enable({ "ts_ls", "eslint", "sourcekit", "rust_analyzer", "bashls" })
-    end },
-    { "lukas-reineke/indent-blankline.nvim", config = function()
-        require("ibl").setup { scope = { show_start = false, show_end = false } }
-    end },
-    { "fwrs/gitsigns-nvim", config = function()
-        require("gitsigns").setup()
-    end },
-    { "smoka7/hop.nvim", config = function()
-        require("hop").setup()
-    end },
-    { "folke/which-key.nvim", config = function()
-        require("which-key").setup { preset = "helix", icons = { mappings = false } }
-    end },
+        end,
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function() require("treesitter-context").setup { mode = "topline" } end,
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
+        config = function()
+            require("telescope").setup {
+                defaults = { mappings = { i = { ["<M-a>"] = "select_all", ["<M-t>"] = "toggle_all" } } },
+                extensions = { file_browser = { hijack_netrw = true } },
+            }
+            require("telescope").load_extension("file_browser")
+        end,
+    },
+    {
+        "echasnovski/mini.statusline",
+        config = function() require("mini.statusline").setup() end,
+    },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function() require("nvim-autopairs").setup { check_ts = true } end,
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
+        dependencies = { "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip", "hrsh7th/cmp-nvim-lsp", "windwp/nvim-autopairs" },
+        config = function()
+            local cmp = require("cmp")
+            local luasnip = require("luasnip")
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            cmp.setup {
+                snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
+                mapping = cmp.mapping.preset.insert {
+                    ["<c-k>"] = cmp.mapping.select_prev_item(),
+                    ["<c-j>"] = cmp.mapping.select_next_item(),
+                    ["<c-b>"] = cmp.mapping.scroll_docs(-4),
+                    ["<c-f>"] = cmp.mapping.scroll_docs(4),
+                    ["<c-space>"] = cmp.mapping.complete(),
+                    ["<c-e>"] = cmp.mapping.abort(),
+                    ["<cr>"] = cmp.mapping.confirm { select = false },
+                },
+                sources = cmp.config.sources {
+                    { name = "nvim_lsp" },
+                    { name = "buffer" },
+                    { name = "path" },
+                },
+            }
+        end,
+    },
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = { "hrsh7th/cmp-nvim-lsp" },
+        config = function()
+            local cmp_nvim_lsp = require("cmp_nvim_lsp")
+            local on_attach = function(client, buffer)
+                local opts = { noremap = true, silent = true, buffer = buffer }
+                vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts)
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+                vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+                vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
+                vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
+                vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+                vim.keymap.set({ "n", "v" }, "<leader>fmt", vim.lsp.buf.format, opts)
+                vim.keymap.set({ "n", "v" }, "<leader>rn", vim.lsp.buf.rename, opts)
+                vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=" .. buffer .. "<cr>", opts)
+                vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+                vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+                vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+                vim.keymap.set({ "n", "v" }, "K", vim.lsp.buf.hover, opts)
+                vim.keymap.set({ "n", "v" }, "<leader>hnt", function()
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+                end, opts)
+            end
+            local default_config = {
+                capabilities = cmp_nvim_lsp.default_capabilities(),
+                on_attach = on_attach,
+                single_file_support = true,
+            }
+            vim.lsp.config("*", default_config)
+            vim.lsp.enable({ "ts_ls", "eslint", "sourcekit", "rust_analyzer", "bashls" })
+        end,
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function() require("ibl").setup { scope = { show_start = false, show_end = false } } end,
+    },
+    {
+        "fwrs/gitsigns-nvim",
+        config = function() require("gitsigns").setup() end,
+    },
+    {
+        "smoka7/hop.nvim",
+        event = "VeryLazy",
+        config = function() require("hop").setup() end,
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        config = function() require("which-key").setup { preset = "helix", icons = { mappings = false } } end,
+    },
 }
