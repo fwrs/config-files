@@ -1,14 +1,12 @@
 #!/bin/sh
 # I bind this to ⌃⌘T
-dir="$PWD"
-# Remove a potential suffix in case Xcode shows a Swift Package
-suffix="/.swiftpm/xcode"
-dir=${dir//$suffix/}
 
-echo "
-#!/bin/sh
-export fish_startup_cwd=\"$dir\"
-/opt/homebrew/bin/fish -i" > ~/.xcode/launch_term.command
+dir=$(printf '%s' "$PWD" | sed 's|/.swiftpm/xcode||')
+esc_dir=$(printf '%s' "$dir" | sed 's/\\/\\\\/g; s/"/\\"/g')
 
-chmod +x ~/.xcode/launch_term.command
-open ~/.xcode/launch_term.command
+osascript \
+    -e "tell application \"Ghostty\"" \
+    -e "    set cfg to new surface configuration" \
+    -e "    set initial working directory of cfg to \"$esc_dir\"" \
+    -e "    new window with configuration cfg" \
+    -e "end tell"
