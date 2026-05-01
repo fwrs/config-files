@@ -1,9 +1,9 @@
 @-moz-document url-prefix(chrome://devtools/content) {
     .devtools-monospace {
-        font-family: "Input" !important;
+        font-family: "PragmataPro Mono" !important;
     }
 
     #devtools-webconsole {
-        --monospace-font-family: "Input" !important;
+        --monospace-font-family: "PragmataPro Mono" !important;
     }
 }
