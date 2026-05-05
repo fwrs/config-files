@@ -141,12 +141,12 @@ require("lazy").setup {
         config = function() require("Comment").setup() end,
     },
     { "windwp/nvim-ts-autotag" },
-    { "nvim-treesitter/nvim-treesitter-textobjects" },
+    { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
     {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPre", "BufNewFile" },
         config = function()
-            require("nvim-treesitter.configs").setup {
+            require("nvim-treesitter.config").setup {
                 highlight = { enable = true, disable = { "swift" } },
                 indent = { enable = true },
                 autotag = { enable = true },
