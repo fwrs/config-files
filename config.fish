@@ -44,6 +44,12 @@ set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 function fish_mode_prompt; end
 
+set __fish_git_prompt_char_stagedstate "○"
+set __fish_git_prompt_char_dirtystate "+"
+set __fish_git_prompt_char_untrackedfiles "…"
+set __fish_git_prompt_char_conflictedstate "×"
+set __fish_git_prompt_char_cleanstate "✓"
+
 if set -q fish_startup_command
     eval $fish_startup_command
     set -e fish_startup_command
