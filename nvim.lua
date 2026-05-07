@@ -95,6 +95,49 @@ vim.cmd.autocmd("User FugitiveIndex,FugitiveObject nmap <buffer> <silent> g; :<c
 -- cmds
 vim.cmd.command("-bar Gl G ++curwin log --graph --oneline --decorate --pretty=format:\"%h -%d %s (%cr) <%an>\"")
 
+-- my fancy colorcolumn replacement, maybe worth turning into its own plugin sometime
+local custom_colorcolumn_ns = vim.api.nvim_create_namespace("custom_colorcolumn")
+local colorcolumn_start = 120
+vim.api.nvim_set_decoration_provider(custom_colorcolumn_ns, {
+    on_win = function(_, win, buf, top, bottom)
+        local line_count = vim.api.nvim_buf_line_count(buf)
+        if vim.bo[buf].bt ~= "" or line_count == 0 then return end
+        vim.api.nvim_buf_clear_namespace(buf, custom_colorcolumn_ns, top, bottom + 1)
+        local cur, vis = vim.api.nvim_win_get_cursor(win)[1] - 1, vim.fn.mode():find("[vV\22sS\19]")
+        local fill_str = (" "):rep(vim.api.nvim_win_get_width(win))
+
+        -- this part handles lines that are part of the file
+        vim.iter(vim.api.nvim_buf_get_lines(buf, top, bottom + 1, false)):enumerate():each(function(index, line_content)
+            local line = top + index - 1
+            local line_width = vim.fn.strdisplaywidth(line_content)
+            if line == cur and not vis then return end
+            if line_width > colorcolumn_start then
+                local start_byte = vim.fn.virtcol2col(win, line + 1, colorcolumn_start + 1) - 1
+                start_byte = math.max(0, math.min(start_byte, #line_content))
+                vim.api.nvim_buf_set_extmark(buf, custom_colorcolumn_ns, line, start_byte, {
+                    end_col = #line_content,
+                    hl_group = "ColorColumn",
+                })
+            end
+            vim.api.nvim_buf_set_extmark(buf, custom_colorcolumn_ns, line, 0, {
+                virt_text = { { fill_str, "ColorColumn" } },
+                virt_text_win_col = math.max(line_width, colorcolumn_start),
+                priority = 50,
+            })
+        end)
+
+        -- this part handles lines beyond eof
+        local filler = {}
+        local void_line = { { (" "):rep(colorcolumn_start) }, { fill_str, "ColorColumn" } }
+        for _ = 1, vim.api.nvim_win_get_height(win) do table.insert(filler, void_line) end
+        vim.api.nvim_buf_set_extmark(buf, custom_colorcolumn_ns, line_count - 1, 0, {
+            id = 1,
+            virt_lines = filler,
+            priority = 1,
+        })
+    end,
+})
+
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -120,8 +163,10 @@ require("lazy").setup {
             local o = require("onedark")
             o.setup { style = "light", transparent = true }
             o.load()
-            vim.cmd("highlight CursorLine guibg=#f6f6f6")
+            vim.cmd("highlight CursorLine guibg=#ecf4fe")
+            vim.cmd("highlight Visual guibg=#ecf4fe")
             vim.cmd("highlight MatchParen guibg=#d5dbde")
+            vim.cmd("highlight! ColorColumn guibg=#fafafa")
             vim.cmd("highlight! link CursorLineNr CursorLine")
             vim.cmd("highlight! link CursorLineSign CursorLine")
             vim.cmd("highlight! link TreesitterContextLineNumber TreesitterContext")
