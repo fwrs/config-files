@@ -164,7 +164,7 @@ require("lazy").setup {
             o.setup { style = "light", transparent = true }
             o.load()
             vim.cmd("highlight CursorLine guibg=#ecf4fe")
-            vim.cmd("highlight Visual guibg=#ecf4fe")
+            vim.cmd("highlight Visual guibg=#b2d7ff")
             vim.cmd("highlight MatchParen guibg=#d5dbde")
             vim.cmd("highlight! ColorColumn guibg=#fafafa")
             vim.cmd("highlight! link CursorLineNr CursorLine")
