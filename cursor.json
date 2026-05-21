@@ -10,9 +10,7 @@
     "editor.hideCursorInOverviewRuler": true,
     "editor.lineNumbers": "relative",
     "editor.overviewRulerBorder": false,
-    "editor.rulers": [
-        120
-    ],
+    "editor.rulers": [120],
     "editor.scrollbar.horizontalScrollbarSize": 8,
     "editor.scrollbar.verticalScrollbarSize": 8,
     "extensions.autoCheckUpdates": false,
