@@ -36,6 +36,7 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx GPG_TTY (tty)
+set -gx EDITOR /opt/homebrew/bin/nvim
 
 fish_vi_key_bindings
 set fish_cursor_default block
