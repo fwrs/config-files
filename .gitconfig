@@ -32,8 +32,6 @@
     autoSetupRebase = always
 [diff]
     noprefix = true
-[difftool "ksdiff"]
-    cmd = ksdiff "$LOCAL" "$REMOTE"
 [log]
     abbrevCommit = true
     date = local
@@ -47,5 +45,3 @@
     prompt = false
 [mergetool "nvim"]
     cmd = "nvim -f -c \"Gvdiffsplit!\" \"$MERGED\""
-[alias]
-    ksdiff = "!git difftool --dir-diff --tool=ksdiff #"
