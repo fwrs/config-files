@@ -1,0 +1,58 @@
+themes {
+    theme {
+        text_unselected         { base 0;  background 8;  emphasis_0 15; emphasis_1 15; emphasis_2 15; emphasis_3 15; }
+        text_selected           { base 15; background 4;  emphasis_0 11; emphasis_1 14; emphasis_2 10; emphasis_3 13; }
+        ribbon_unselected       { base 0;  background 7;  emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        ribbon_selected         { base 15; background 4;  emphasis_0 11; emphasis_1 14; emphasis_2 10; emphasis_3 13; }
+        table_title             { base 8;  background 15; emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        table_cell_unselected   { base 0;  background 15; emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        table_cell_selected     { base 15; background 4;  emphasis_0 11; emphasis_1 14; emphasis_2 10; emphasis_3 13; }
+        list_unselected         { base 0;  background 15; emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        list_selected           { base 15; background 4;  emphasis_0 11; emphasis_1 14; emphasis_2 10; emphasis_3 13; }
+        frame_unselected        { base 8;  background 15; emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        frame_selected          { base 4;  background 15; emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        frame_highlight         { base 3;  background 15; emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        exit_code_success       { base 2;  background 15; emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        exit_code_error         { base 1;  background 15; emphasis_0 3;  emphasis_1 6;  emphasis_2 2;  emphasis_3 5;  }
+        multiplayer_user_colors { player_1 1; player_2 2; player_3 3;  player_4 4;  player_5 5;
+                                  player_6 6; player_7 9; player_8 10; player_9 12; player_10 13; }
+    }
+}
+
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+                format_left "#[fg=#383a42,bg=#f0f0f0]zellij/{session} {tabs}"
+                tab_normal "#[bg=#e6e6e6] {index}:{name} #[bg=#f0f0f0] "
+                tab_active "#[fg=#ffffff,bg=#4078f2] {index}:{name} #[bg=#f0f0f0] "
+                format_space "#[fg=#383a42,bg=#f0f0f0]"
+            }
+        }
+    }
+}
+
+plugins {
+    configuration location="zellij:configuration"
+    plugin-manager location="zellij:plugin-manager"
+    session-manager location="zellij:session-manager"
+    compact-bar location="zellij:compact-bar" { tooltip ""; }
+    filepicker location="zellij:strider" { cwd "/"; }
+    strider location="zellij:strider"
+}
+
+load_plugins {
+    zellij:link
+    compact-bar
+}
+
+show_startup_tips false
+show_release_notes false
+mouse_hover_tips false
+simplified_ui true
+theme "theme"
+layout_dir "/Users/ilyakulinkovich/.config/zellij"
+default_layout "config"
+default_mode "locked"
+default_shell "/opt/homebrew/bin/fish"
