@@ -1,7 +1,7 @@
 [user]
     name = Ilya K.
     email = ilyafwrs@gmail.com
-    signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILIXkGiXNWzcnIs3vWhcJOkSvElEDRacHoDIo4j7unKc
+    signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICogcLp8G9XT76H2ZakuWruzkJBHxwjnjP4vZK2pyo4s
 [core]
     excludesFile = ~/.gitignore_global
     editor = "nvim"
