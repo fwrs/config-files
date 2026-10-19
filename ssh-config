@@ -1,17 +1,3 @@
-Include ~/.colima/ssh_config
-
-Host workgit
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/work_git
-    IdentitiesOnly yes
-
-Host personalgit
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/personal_git
-    IdentitiesOnly yes
-
 Host *
-    IdentityFile ~/.ssh/personal_git
+    IdentityFile ~/.ssh/personal
     IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
