@@ -1,4 +1,4 @@
-Include /Users/ilyakulinkovich/.colima/ssh_config
+Include ~/.colima/ssh_config
 
 Host workgit
     HostName github.com
