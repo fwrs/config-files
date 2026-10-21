@@ -94,7 +94,7 @@ vim.cmd.autocmd("User FugitiveIndex,FugitiveObject nmap <buffer> <silent> g; :<c
 
 -- cmds
 vim.cmd.command("-bar Gl G ++curwin log --graph --oneline --decorate --pretty=format:\"%h -%d %s (%cr) <%an>\"")
-vim.cmd.command("-bar W w | Gwrite")
+vim.cmd.command("-bar -bang W w | Gwrite<bang>")
 
 -- my giga cursed colorcolumn replacement
 local custom_colorcolumn_ns = vim.api.nvim_create_namespace("custom_colorcolumn")
