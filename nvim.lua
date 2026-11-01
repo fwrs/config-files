@@ -1,5 +1,4 @@
 -- settings
-require('vim._core.ui2').enable {}
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.tabstop = 4
@@ -78,7 +77,7 @@ vim.keymap.set("", "<leader>hs", "<cmd>HopChar1<cr>")
 vim.keymap.set({ "x", "o" }, "i/", ":<c-u>normal! T/vt/<cr>", { silent = true })
 vim.keymap.set({ "x", "o" }, "a/", ":<c-u>normal! F/vf/<cr>", { silent = true })
 
--- nvim 0.10 broke replacewithregister, very cool
+-- make replacewithregister's keybinds take priority
 for _, mode in ipairs { "n", "v" } do
     for _, lhs in ipairs { "gra", "gri", "grn", "grr", "grt" } do
         pcall(vim.keymap.del, mode, lhs)
