@@ -33,6 +33,7 @@ vim.opt.foldlevel = math.maxinteger
 vim.opt.foldlevelstart = math.maxinteger
 vim.opt.foldenable = false
 vim.opt.shell = "/opt/homebrew/bin/fish"
+vim.opt.colorcolumn = "120"
 vim.g.editorconfig = false
 vim.g.mapleader = " "
 vim.g.rooter_silent_chdir = 1
@@ -95,87 +96,6 @@ vim.cmd.autocmd("User FugitiveIndex,FugitiveObject nmap <buffer> <silent> g; :<c
 -- cmds
 vim.cmd.command("-bar Gl G ++curwin log --graph --oneline --decorate --pretty=format:\"%h -%d %s (%cr) <%an>\"")
 vim.cmd.command("-bar -bang W w | Gwrite<bang>")
-
--- my giga cursed colorcolumn replacement
-local custom_colorcolumn_ns = vim.api.nvim_create_namespace("custom_colorcolumn")
-local colorcolumn_start = 120
-local attached_bufs = {}
-vim.api.nvim_set_decoration_provider(custom_colorcolumn_ns, {
-    on_win = function(_, win, buf, top, bottom)
-        local line_count = vim.api.nvim_buf_line_count(buf)
-        if vim.bo[buf].bt ~= "" or line_count == 0 then return end
-        if not attached_bufs[buf] then
-            attached_bufs[buf] = true
-            vim.api.nvim_buf_attach(buf, false, {
-                on_lines = function(_, buf)
-                    local line_count = vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].bt == "" and
-                        vim.api.nvim_buf_line_count(buf) or 0
-                    if line_count > 0 then
-                        vim.api.nvim_buf_set_extmark(buf, custom_colorcolumn_ns, line_count - 1, 0, {
-                            id = 1,
-                            virt_lines = { { { " ", "Normal" } } },
-                            priority = 1,
-                        })
-                    end
-                end,
-                on_detach = function(_, buf) attached_bufs[buf] = nil end,
-            })
-        end
-        vim.api.nvim_buf_clear_namespace(buf, custom_colorcolumn_ns, top, bottom + 1)
-        local cur = vim.api.nvim_win_get_cursor(win)[1] - 1
-        local vis = vim.fn.mode():find("[vV\22sS\19]")
-        local win_width = vim.api.nvim_win_get_width(win)
-        local fill_str = (" "):rep(win_width)
-        local wrap = vim.wo[win].wrap
-        local textoff = wrap and (vim.fn.getwininfo(win)[1] or {}).textoff or 0
-        local text_width = win_width - textoff
-        vim.iter(vim.api.nvim_buf_get_lines(buf, top, bottom + 1, false)):enumerate():each(
-            function(index, line_content)
-                local line, line_width = top + index - 1, vim.fn.strdisplaywidth(line_content)
-                if line == cur and not vis then return end
-                if line_width > colorcolumn_start then
-                    local raw_start_byte = vim.fn.virtcol2col(win, line + 1, colorcolumn_start + 1) - 1
-                    local start_byte = math.max(0, math.min(raw_start_byte, #line_content))
-                    vim.api.nvim_buf_set_extmark(buf, custom_colorcolumn_ns, line, start_byte, {
-                        end_col = #line_content,
-                        hl_group = "ColorColumn",
-                    })
-                end
-                vim.api.nvim_buf_set_extmark(buf, custom_colorcolumn_ns, line, 0, {
-                    virt_text = { { fill_str, "ColorColumn" } },
-                    virt_text_win_col = math.max(line_width, colorcolumn_start),
-                    priority = 50,
-                })
-                if wrap and line_width > text_width then
-                    local num_rows = math.ceil(line_width / text_width)
-                    for row_index = 0, num_rows - 1 do
-                        local start_vcol = row_index * text_width
-                        local end_vcol = math.min(line_width, (row_index + 1) * text_width)
-                        local content_sw, cc_sc = end_vcol - start_vcol, colorcolumn_start - start_vcol
-                        local raw_anchor = vim.fn.virtcol2col(win, line + 1, start_vcol + 1) - 1
-                        local anchor = row_index == 0 and 0 or math.max(0, math.min(raw_anchor, #line_content - 1))
-                        local fill_sc = math.max(content_sw, math.max(0, cc_sc))
-                        if fill_sc < text_width then
-                            vim.api.nvim_buf_set_extmark(buf, custom_colorcolumn_ns, line, anchor, {
-                                virt_text = { { fill_str, "ColorColumn" } },
-                                virt_text_win_col = fill_sc,
-                                priority = 50,
-                            })
-                        end
-                    end
-                end
-            end
-        )
-        local filler = {}
-        local void_line = { { (" "):rep(colorcolumn_start) }, { fill_str, "ColorColumn" } }
-        for _ = 1, vim.api.nvim_win_get_height(win) do filler[#filler + 1] = void_line end
-        vim.api.nvim_buf_set_extmark(buf, custom_colorcolumn_ns, line_count - 1, 0, {
-            id = 1,
-            virt_lines = filler,
-            priority = 1,
-        })
-    end,
-})
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
