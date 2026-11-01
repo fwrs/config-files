@@ -1,0 +1,52 @@
+{
+  "fileVersion" : 1,
+  "recipe" : {
+    "background" : {
+      "customColor" : {
+        "chroma" : {
+          "exact" : 1.0175346946365654e-08
+        },
+        "gamut" : "P3",
+        "hue" : {
+          "radians" : 1.5686244931074056
+        },
+        "lightness" : {
+          "exact" : 0.9999999934735462
+        },
+        "opacity" : 1
+      }
+    },
+    "colorScheme" : "light",
+    "palette" : {
+      "colorOverrides" : {
+        "number" : {
+          "hue" : {
+            "radians" : 0.5235987755982988
+          }
+        },
+        "preprocessor" : {
+          "hue" : {
+            "radians" : 3.2637657012293966
+          }
+        },
+        "string" : {
+          "hue" : {
+            "radians" : 0.8377580409572781
+          }
+        }
+      },
+      "primary" : {
+        "hue" : {
+          "intensity" : 0.5,
+          "radians" : 5.288347633542818
+        }
+      },
+      "secondary" : {
+        "hue" : {
+          "intensity" : 0.75,
+          "radians" : 4.60766922526503
+        }
+      }
+    }
+  }
+}
