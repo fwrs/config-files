@@ -297,4 +297,8 @@ require("lazy").setup {
         event = "VeryLazy",
         config = function() require("which-key").setup { preset = "helix", icons = { mappings = false } } end,
     },
+    {
+        "folke/snacks.nvim",
+        opts = { image = { enabled = true } },
+    },
 }
