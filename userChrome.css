@@ -7,5 +7,5 @@
 }
 
 #nav-bar .toolbarbutton-icon {
-    filter: grayscale();
+    filter: grayscale() !important;
 }
