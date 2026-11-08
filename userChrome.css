@@ -1,3 +1,11 @@
 #alltabs-button {
     display: none !important;
 }
+
+#navigator-toolbox {
+    background: #ececec !important;
+}
+
+#nav-bar .toolbarbutton-icon {
+    filter: grayscale();
+}
