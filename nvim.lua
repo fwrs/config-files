@@ -276,7 +276,7 @@ require("lazy").setup {
                 single_file_support = true,
             }
             vim.lsp.config("*", default_config)
-            vim.lsp.enable({ "ts_ls", "eslint", "sourcekit", "rust_analyzer", "bashls" })
+            vim.lsp.enable({ "tsc", "eslint", "sourcekit", "rust_analyzer", "bashls" })
         end,
     },
     {
