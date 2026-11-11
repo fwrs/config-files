@@ -6,6 +6,11 @@
     background: #ececec !important;
 }
 
+:root[privatebrowsingmode] #navigator-toolbox {
+    background: #1c1c1c !important;
+    transition: none !important;
+}
+
 #nav-bar .toolbarbutton-icon {
     filter: grayscale() !important;
 }
