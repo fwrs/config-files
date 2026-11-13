@@ -15,7 +15,7 @@ function fish_prompt
         set suffix "#"
     else
         set color_cwd $fish_color_cwd
-        set suffix "$"
+        set suffix "\$"
     end
 
     set_color $color_cwd
