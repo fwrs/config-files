@@ -15,6 +15,7 @@ set relativenumber
 set cursorline
 set wrap
 set breakindent
+set easymotion
 
 nnoremap x "_x
 nnoremap <leader>+ <c-a>
@@ -83,5 +84,3 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-
-set easymotion
