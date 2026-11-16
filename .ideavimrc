@@ -1,86 +1,87 @@
-set hls
-set ideajoin
-set relativenumber
-set number
-set tabstop=4
-set shiftwidth=4
-set expandtab
+let g:mapleader=' '
+let g:camelcasemotion_key=','
+let g:EasyMotion_do_mapping=0
+
 set autoindent
-set nowrap
+set ideajoin
+set iskeyword+=-
+set hls
 set ignorecase
 set smartcase
-set cursorline
-set termguicolors
-set background=light
-set signcolumn=yes
-set backspace=indent,eol,start
 set clipboard^=unnamedplus,ideaput
-set splitright
-set splitbelow
-set iskeyword+=-
-set shortmess+=I
-set completeopt=menu,menuone,noselect
-set nolist
+set shell=/opt/homebrew/bin/fish
+set number
+set relativenumber
+set cursorline
 set wrap
 set breakindent
-set linebreak
-set shell=/opt/homebrew/bin/fish
-set easymotion
-let &listchars='eol:↵,space:·,precedes:<,extends:>,tab:~ ,nbsp:␣'
-let &fillchars='eob: '
-let &showbreak='   '
-let g:EasyMotion_do_mapping=0
-let g:mapleader=' '
 
 nnoremap x "_x
-nmap <leader>n :nohl<cr>
-nmap <leader>l :set list!<cr>
-nmap <leader>+ <c-a>
-nmap <leader>- <c-x>
-nmap <leader>sv <c-w>v
-nmap <leader>sh <c-w>s
-nmap <leader>se <c-w>=
-nmap <leader>sx :close<cr>
-nmap <leader>to :tabnew<cr>
-nmap <leader>tx :tabclose<cr>
-nmap <leader>tn :tabn<cr>
-nmap <leader>tp :tabp<cr>
-map <leader>ha <Plug>(easymotion-jumptoanywhere)
-map <leader>hw <Plug>(easymotion-bd-w)
-map <leader>hs <Plug>(easymotion-bd-f)
-map ,w [w
-map ,e ]w
-map ,b [b
+nnoremap <leader>+ <c-a>
+xnoremap <leader>+ <c-a>
+nnoremap <leader>- <c-x>
+xnoremap <leader>- <c-x>
+xmap an <Action>(EditorSelectWord)
+xmap in <Action>(EditorUnSelectWord)
+nnoremap <leader>n :nohl<cr>
+nnoremap <c-l> :nohl<cr>
+nnoremap <leader>l :set list!<cr>
+nnoremap <leader>sv <c-w>v
+nnoremap <leader>sh <c-w>s
+nnoremap <leader>se <c-w>=
+nnoremap <leader>sx <c-w>c
+nnoremap <leader>to :tabnew<cr>
+nnoremap <leader>tx :tabclose<cr>
+nnoremap <leader>tn :tabn<cr>
+nnoremap <leader>tp :tabp<cr>
+nmap <leader>cp <Action>(CopyAbsolutePath)
+nmap grr <Action>(FindUsages)
+nmap gri <Action>(GotoImplementation)
+nmap grt <Action>(GotoTypeDeclaration)
+nmap K <Action>(QuickJavaDoc)
+nmap gO <Action>(FileStructurePopup)
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+nmap <c-w>d <Action>(ShowErrorDescription)
+nmap gra <Action>(ShowIntentionActions)
+xmap gra <Action>(ShowIntentionActions)
+nmap grn <Action>(RenameElement)
+nmap <leader>fmt <Action>(ReformatCode)
+xmap <leader>fmt <Action>(ReformatCode)
+nmap sa <Plug>YSurround
+xmap sa <Plug>VSurround
+nmap sd <Plug>DSurround
+nmap sr <Plug>CSurround
+nmap <leader>ha <Plug>(easymotion-jumptoanywhere)
+xmap <leader>ha <Plug>(easymotion-jumptoanywhere)
+omap <leader>ha <Plug>(easymotion-jumptoanywhere)
+nmap <leader>hw <Plug>(easymotion-bd-w)
+xmap <leader>hw <Plug>(easymotion-bd-w)
+omap <leader>hw <Plug>(easymotion-bd-w)
+nmap <leader>hs <Plug>(easymotion-bd-f)
+xmap <leader>hs <Plug>(easymotion-bd-f)
+omap <leader>hs <Plug>(easymotion-bd-f)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+nmap [h <Action>(VcsShowPrevChangeMarker)
 
-nmap ci,w [bv]ws
-nmap di,w [bv]wd
-nmap yi,w [bv]wy
-nmap vi,w [bv]w
-vmap vi,w [bv]w
-omap vi,w [bv]w
-nmap gri,w [bv]wgr
-nmap gUi,w [bv]wgU
-nmap gui,w [bv]wgu
-nmap ci/ T/vt/s
-nmap di/ T/vt/d
-nmap yi/ T/vt/y
-nmap vi/ T/vt/
-vmap vi/ T/vt/
-omap vi/ T/vt/
-nmap gri/ T/vt/gr
-nmap gUi/ T/vt/gU
-nmap gui/ T/vt/gu
-nmap ca/ F/vf/s
-nmap da/ F/vf/d
-nmap ya/ F/vf/y
-nmap va/ F/vf/
-vmap va/ F/vf/
-omap va/ F/vf/
-nmap gra/ F/vf/gr
-nmap gUa/ F/vf/gU
-nmap gua/ F/vf/gu
+nnoremap ci/ T/vt/c
+nnoremap di/ T/vt/d
+nnoremap yi/ T/vt/y
+nnoremap vi/ T/vt/
+xnoremap i/ <esc>T/vt/
+nnoremap gUi/ T/vt/gU
+nnoremap gui/ T/vt/gu
+nnoremap ca/ F/vf/c
+nnoremap da/ F/vf/d
+nnoremap ya/ F/vf/y
+nnoremap va/ F/vf/
+xnoremap a/ <esc>F/vf/
+nnoremap gUa/ F/vf/gU
+nnoremap gua/ F/vf/gu
 
-Plug 'tpope/vim-surround'
+Plug 'bkad/CamelCaseMotion'
+Plug 'vim-scripts/argtextobj.vim'
 Plug 'tpope/vim-commentary'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'inkarkat/vim-ReplaceWithSameIndentRegister'
+Plug 'tpope/vim-surround'
+
+set easymotion
