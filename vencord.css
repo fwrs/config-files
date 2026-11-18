@@ -19,17 +19,21 @@ li[class*=channel]:has(a[href="/quest-home"]) {
 }
 
 div[class*=channelAppLauncher] {
-    display: none;
+    display: none !important;
 }
 
 div[class*=channelTextArea] div[class*=buttons] > :is(div, button):not(:has(div[class*=emojiButton])):not(div[class*=separator]):not(div[class*=separator] + div) {
-    display: none;
+    display: none !important;
 }
 
 div[class*=entryPointButtonContainer]:has(button[class*=entryPointAppCommandButton]) {
-    display: none;
+    display: none !important;
 }
 
 div[class*=member] > div[class*=childContainer] > div[class*=container]:has(video[src*=collectibles]) {
-    display: none;
+    display: none !important;
+}
+
+div[aria-label="Update Ready!"] {
+    display: none !important;
 }
