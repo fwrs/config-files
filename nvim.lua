@@ -125,7 +125,7 @@ require("lazy").setup {
                             and vim.list_contains(treesitter.get_installed("queries"), lang) then
                             start()
                         else
-                            pending[lang] = pending[lang] or ts.install(lang, { force = true })
+                            pending[lang] = pending[lang] or treesitter.install(lang, { force = true })
                             pending[lang]:await(vim.schedule_wrap(function()
                                 pending[lang] = nil
                                 start()
