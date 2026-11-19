@@ -110,21 +110,34 @@ require("lazy").setup {
         config = function()
             vim.opt.foldmethod = "expr"
             vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            local treesitter = require("nvim-treesitter")
+            local pending = {}
             vim.api.nvim_create_autocmd("FileType", {
                 callback = function(args)
                     local lang = vim.treesitter.language.get_lang(args.match)
-                    if vim.list_contains(require("nvim-treesitter").get_available(), lang) then
+                    if vim.list_contains(treesitter.get_available(), lang) then
                         local start = function()
                             if pcall(vim.treesitter.start, args.buf, lang) then
                                 vim.bo[args.buf].indentexpr = "luaeval(\"require(\\\"nvim-treesitter\\\").indentexpr()\")"
                             end
                         end
-                        if vim.list_contains(require("nvim-treesitter").get_installed(), lang) then
+                        if vim.list_contains(treesitter.get_installed("parsers"), lang)
+                            and vim.list_contains(treesitter.get_installed("queries"), lang) then
                             start()
                         else
-                            require("nvim-treesitter").install(lang):await(vim.schedule_wrap(start))
+                            pending[lang] = pending[lang] or ts.install(lang, { force = true })
+                            pending[lang]:await(vim.schedule_wrap(function()
+                                pending[lang] = nil
+                                start()
+                            end))
                         end
                     end
+                end,
+            })
+            vim.api.nvim_create_autocmd("VimLeavePre", {
+                callback = function()
+                    if next(pending) == nil then return end
+                    for _, task in pairs(pending) do task:pwait() end
                 end,
             })
         end,
